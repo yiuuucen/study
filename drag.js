@@ -1,10 +1,10 @@
 function drag(id) {
-	var obj=document.getElementById('id');
+	var obj=document.getElementById(id);
 	var disX=0;
 	var disY=0;
 	obj.onmousedown=function(ev){
 		disX=ev.pageX-obj.offsetLeft;
-		dixY=ev.pageY-obj.offsetTop;
+		disY=ev.pageY-obj.offsetTop;
 
 
 		document.onmousemove=function(ev){
@@ -12,5 +12,11 @@ function drag(id) {
 			obj.style.top=ev.pageY-disY+'px';
 
 		}
+		document.onmouseup=function(ev){
+			document.onmousedown=null;
+			document.onmousemove=null;
+		}
+
 	}
+	return false;
 }
