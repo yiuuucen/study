@@ -6,9 +6,11 @@ function drag(id) {
 		disX=ev.pageX-obj.offsetLeft;
 		dixY=ev.pageY-obj.offsetTop;
 
+
 		document.onmousemove=function(ev){
 			obj.style.left=ev.pageX-disX+'px';
 			obj.style.top=ev.pageY-disY+'px';
+
 		}
 	}
 }
