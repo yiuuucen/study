@@ -1,3 +1,6 @@
-function function_name(argument) {
-	// body...
+function drag(id) {
+	var obj=document.getElementById('id');
+	obj.onmousedown=function(){
+		
+	}
 }
