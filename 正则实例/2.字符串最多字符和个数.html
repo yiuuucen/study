@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		//原生JS方法 
+		// var str='jkjoovhkbeeevfoookxcvhnbdcooooodsfd';
+
+		// var json={
+		// 	// j:[]
+		// 	// k:[]
+		// 	// ...
+		// };
+		// var index=0;
+		// var value='';
+		// function find(str){
+		// 	str=str.split('').sort().join('');
+
+		// 	for(var i=0;i<str.length;i++){
+		// 		if(!json[str[i]]){
+		// 			json[str[i]]=[];
+		// 		}
+		// 		json[str[i]].push(str[i]);
+		// 	}
+		// 	for(var item in json){
+		// 		// if(index<item.length){
+		// 		// 	index=item.length;
+		// 		// 	value=item[0];
+		// 		// }
+		// 		if(index<json[item].length){
+		// 			index=json[item].length;
+		// 			value=json[item][0];
+		// 		}
+		// 	}
+		// 	return '出现最多的是'+ value+'，'+index+'次';
+			
+		// }
+	
+		// alert(find(str));
+
+		// 正则方法
+
+		var str='jkjoovhkbeeevfoookxcvhnbdcooooodsfd';
+
+		function find(str){
+
+			var index=0;
+			var value='';
+
+			str=str.split('').sort().join('');
+
+			var re=/(\w)\1+/g;
+			str.replace(re,function($0,$1){
+				// console.log($0);
+				if(index<$0.length){
+					index=$0.length;
+					value=$1;
+				}
+			});
+
+			return '出现最多的是'+ value+'，'+index+'次';
+		}
+		// find(str);
+		alert(find(str));
+	</script>
+</head>
+<body>
+	<!-- jkjoovhkbeeevfoookxcvhnbdcooooodsfd -->
+</body>
+</html>
