@@ -10,7 +10,6 @@ function drag(id) {
 		document.onmousemove=function(ev){
 			obj.style.left=ev.pageX-disX+'px';
 			obj.style.top=ev.pageY-disY+'px';
-
 		}
 		document.onmouseup=function(ev){
 			document.onmousedown=null;
