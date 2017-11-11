@@ -5,6 +5,7 @@ function drag(id) {
 	obj.onmousedown=function(ev){
 		disX=ev.pageX-obj.offsetLeft;
 		disY=ev.pageY-obj.offsetTop;
+		// 测试
 		// 拖拽
 
 		document.onmousemove=function(ev){
