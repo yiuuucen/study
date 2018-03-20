@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <link rel="shortcut icon" href="hh.ico">
+    <link rel="stylesheet" href="cenu_css/reset.css">
+    <link rel="stylesheet" href="cenu_css/style.css">
+    <link rel="stylesheet" href="cenu_css/font-awesome.css">
+</head>
+<body>
+    <div class="login cl">
+        <div class="header cl">
+            <div class="container">
+                <div class="headl">
+                    <a href="./index.html"><img src="cenu_img/logo.png" alt=""></a>
+                </div>
+                <div class="headr">
+                    还没有账户？<a href="./login.html">登录</a>
+                </div>
+            </div>
+        </div>
+        <div class="center cl">
+            <div class="container">
+                <div class="loginform">
+                    <form action="" method="get" class="loginRight">
+                        <h2>Sign up</h2>
+                        <h3><i class="fa fa-user"></i>&nbsp;Username</i></h3>
+                        <input type="text" class="name" id="name">
+                        <h3><i class="fa fa-phone"></i>&nbsp;Telephone</i></h3>
+                        <input type="text" id="tel">
+                        <h3><i class="fa fa-unlock-alt"></i>&nbsp;&nbsp;Password</i></h3>
+                        <input type="password" class="pwd" id="p1">
+                        <h3>Repeat Password</i></h3>
+                        <input type="password" class="pwd" id="p2">
+                        <button type="button" id="ok">Register</button>
+                        <button type="reset">Reset</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="tishi">
+            <div class="tishicont">
+                <img src="cenu_img/icon-error.png" alt="">
+                <p>请您填写完整的信息</p>
+            </div>
+        </div>
+    </div>
+    <canvas id="canvas" style="position: absolute;top: 0;left: 0;z-index: 0;width: 100%;height: 100%;pointer-events: none;"></canvas>
+    <script src="cenu_js/jquery-3.2.1.min.js"></script>
+    <script src="cenu_js/login.js"></script>
+<script>
+        //console.log($('#tel').val());
+        var name=null;
+        var tel=null;
+        var p1=null;
+        var p2=null;
+        function showMsg(tuUrl,message){
+            $('.tishi').css('display','block');
+            $('.tishicont>img').attr('src',tuUrl);
+            $('.tishicont>p').html(message);
+        }
+        function order(name,tel,p1,p2) {
+            if (name == "") {
+                showMsg('cenu_img/icon-error.png','请您输入名字');
+                return false;
+            }
+            if (p1 == "" ) {
+                showMsg('cenu_img/icon-error.png','请您输入密码');
+                return false;
+            }
+            if (p2 == "") {
+                showMsg('cenu_img/icon-error.png','请您再次输入密码');
+                return false;
+            }
+            if (tel.trim().length == 0) {
+                showMsg('cenu_img/icon-error.png','请输入您的手机号');
+                return false;
+            }
+            if (!(/^1[123456789][0-9]{9}$/).test(tel)) {
+                showMsg('yiu_img/icon-error.png','请正确输入手机号');
+                return false;
+            }
+            if(p1!=p2){
+                showMsg('cenu_img/icon-error.png','两次输入的密码不同');
+                return false;
+            }
+            else{
+                showMsg('cenu_img/icon-success.png','注册成功');
+            }
+        }
+        $('#ok').click(function(){
+            name=$('#name').val();
+            tel=$('#tel').val();
+            p1=$('#p1').val();
+            p2=$('#p2').val();
+
+            order(name,tel,p1,p2);
+            setTimeout(function(){
+                $('.tishi').css('display','none');
+            },2000)
+        });
+
+//       
+</script>
+</body>
+</html>
