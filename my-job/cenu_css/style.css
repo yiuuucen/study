@@ -190,7 +190,7 @@ html,body{
     background: #fa3778;
 }
 .index .content .right{
-	width: 400px;
+	width: 310px;
 	height: 400px;
 	/*background: red;*/
 	color: #fff;
@@ -253,7 +253,8 @@ html,body{
 }
 .login .loginform .loginRight{
     text-align: center;
-    background: #eee;
+    background:rgba(255,255,255,0.15);
+    color: #fff;
     border-radius: 50px;
     padding:15px 0 50px ;
     margin: 20px 0;
@@ -275,12 +276,11 @@ html,body{
 .login .loginform .loginRight>input{
     margin: 0;
     padding: 0;
-    border: 0;
-    background: none;
     width: 283px;
     height: 33px;
-    border: #738400 1px solid;
-    background: #FEFFDF;
+    background: none;
+    color: #fff;
+    border: rgba(255,255,255,0.4) 1px solid;  
     padding:0 13px;
     border-radius:20px;
     box-sizing: border-box;
@@ -301,9 +301,11 @@ html,body{
     font-size: 16px;
     font-weight: bold;
     border: 0;
-    background: hotpink;
     outline:none;
     float: left;
+    color: #fff;
+    background: none;
+    border: 1px solid rgba(2552,255,255,0.4);
 }
 .login .tishi{
     width: 100%;
@@ -333,3 +335,102 @@ html,body{
     font-size: 20px;
 }
 /*登录注册页面  login register End*/
+
+/*作品集页面   design  Start*/
+.design{
+	width: 100%;
+	height: 100%;
+	background: url(../cenu_img/index-img/index-bg.jpg) no-repeat ;
+	background-size: cover;
+}
+.design .header{
+	height: 70px;
+	background: rgba(0,0,0,0.4);
+
+}
+.design .header .heade{
+	width: 1050px;
+	height: 70px;
+	margin: 0 auto;
+}
+.design .head-left{
+	float: left;
+	height: 100%;
+}
+.design .head-left ul{
+	height: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+.design .head-left ul li{
+	width: 80px;
+	height:50px;
+	margin: 10px;
+	text-align: center;
+	line-height: 50px;
+	position: relative;
+}
+.design .head-left ul li:first-child{
+	width: 65px;
+	margin: 10px 40px 10px 10px;
+}
+.design .head-left ul li a{
+	font-weight: bold;
+	font-size: 20px;
+}
+.design .head-left ul li a:after{
+	content: '';
+    width: 3px;
+    height: 3px;
+    background: #fff;
+    display: block;
+    position: absolute;
+    right: -6px;
+    top: 50%;
+}
+.design .head-left ul li:first-child{
+	background: url(../cenu_img/logo.png) center center no-repeat;
+	background-size: cover;
+}
+.design .head-right{
+	float: right;
+	height: 100%;
+}
+.design .head-right ol{
+	height: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+.design .head-right ol li{
+	width: 80px;
+	margin: 10px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	position: relative;
+}
+.design .head-right ol li a{
+	font-weight: bold;
+	font-size: 20px;
+}
+.design .head-right ol li a:after{
+	content: '';
+    width: 3px;
+    height: 3px;
+    background: #fff;
+    display: block;
+    position: absolute;
+    right: -6px;
+    top: 50%;
+}
+.design .footer{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	background: rgba(0,0,0,0.4);
+	text-align: center;
+	color: #fff;
+}
+/*作品集页面   design  End*/

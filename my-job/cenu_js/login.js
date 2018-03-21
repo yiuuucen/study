@@ -53,11 +53,12 @@ $(function() {
 		};
 		//
 		listFire.push(fire);
-		
+		;
 	}
 	
+
 	// define array position of text
-	var textString = 'happylunarnewyear2018';
+	var textString = 'happylunarnewyear';
 	var textMatrix = [
 		4.5, 0, 5.5, 0, 6.5, 0, 7.5, 0, 8.5, 0,
 		0, 1, 1, 1, 2, 1, 3, 1, 4, 1, 6, 1, 7, 1, 8, 1, 10, 1, 11, 1, 12, 1, 13, 1,
@@ -110,27 +111,6 @@ $(function() {
 			0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7,
 			1, 0, 2, 0, 3, 0, 4, 1, 5, 2, 4, 3, 3, 4, 2, 4, 1, 4,
 			1, 5, 2, 5, 3, 6, 4, 6, 5, 7
-		],
-		2: [
-			0, 1, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 5, 1, 5, 2, 5, 3,
-			4, 3, 3, 3, 2, 3, 2, 4, 1, 4, 1, 5,
-			0, 5, 0, 6, 0, 7, 1, 7, 2, 7, 3, 7, 4, 7, 5, 7, 5, 6
-		],
-		0: [
-			0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6,
-			1, 0, 2, 0, 3, 0, 4, 0,
-			1, 7, 2, 7, 3, 7, 4, 7,
-			5, 1, 5, 2, 5, 3, 5, 4, 5, 5, 5, 6
-		],
-		1: [
-			1, 2, 2, 2, 2, 1, 3, 1, 3, 0,
-			4, 0, 4, 1, 4, 2, 4, 3, 4, 4, 4, 5, 4, 6, 4, 7,
-			1, 7, 2, 7, 3, 7, 5, 7
-		],
-		7: [
-			0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0,
-			5, 1, 5, 2, 5, 3, 4, 3, 4, 4,
-			3, 4, 3, 5, 3, 6, 3, 7
 		]
 	}
 
@@ -138,37 +118,43 @@ $(function() {
 		var i = textIndex;
 		var velocity = Math.random() * 0.25 + 1;
 		var shift = { x: -(Math.random() + 2), y: -(Math.random() + 3) };
-		// var char = chars[textString[0]];
+		var char = chars[textString[i]];
 		var width = 80;
 		var half = 6.5 * width;
 		var left = textMatrix[i * 2] * width - half;
 		var top = textMatrix[i * 2 + 1] * range * 1.2 - range * 2.4;
-		// for (var j = 0; j < fireNumber * char.length * 0.25; j++) {
-		// 	var rand = Math.floor(Math.random() * char.length * 0.5);
-		// 	var x = char[rand * 2] + shift.x;
-		// 	var y = char[rand * 2 + 1] + shift.y;
-		// 	var text = {
-		// 		x: center.x + left * 0.5,
-		// 		y: center.y + top*0.5,
-		// 		left: center.x + left,
-		// 		size: Math.random() + 0.5,
-		// 		fill: '#ff3',
-		// 		vx: x * (velocity + (Math.random() - 0.5) * 0.5),
-		// 		vy: y * (velocity + (Math.random() - 0.5) * 0.5),
-		// 		ay: 0.08,
-		// 		alpha: 1,
-		// 		life: Math.round(Math.random() * range / 2) + range / 1.5
-		// 	}
-		// 	text.base = {
-		// 		life: text.life,
-		// 		size: text.size,
-		// 	};
-		// 	text.direct = (text.left - text.x) * 0.08;
-		// 	listText.push(text);
-
-		// }
+		for (var j = 0; j < fireNumber * char.length * 0.25; j++) {
+			var rand = Math.floor(Math.random() * char.length * 0.5);
+			var x = char[rand * 2] + shift.x;
+			var y = char[rand * 2 + 1] + shift.y;
+			var text = {
+				x: center.x + left * 0.9,
+				y: center.y + top,
+				left: center.x + left,
+				size: Math.random() + 0.5,
+				fill: '#ff3',
+				vx: x * (velocity + (Math.random() - 0.5) * 0.5),
+				vy: y * (velocity + (Math.random() - 0.5) * 0.5),
+				ay: 0.08,
+				alpha: 1,
+				life: Math.round(Math.random() * range / 2) + range / 1.5
+			}
+			text.base = {
+				life: text.life,
+				size: text.size,
+			};
+			text.direct = (text.left - text.x) * 0.08;
+			listText.push(text);
+		}
 		
-		console.log("next")
+		//
+		lights.push({ x: center.x + left * 0.9, y: center.y + top, color: text.fill, radius: range * 2 });
+		if (++textIndex < textString.length) {
+			setTimeout(initText, 10);
+		}
+		else {
+			textIndex = 0;
+		}
 	}
 
 	function initSpark() {
@@ -598,7 +584,6 @@ $(function() {
 				listSpark.push(spark);
 			}
 
-		
 		}
 		return color;
 	}
@@ -651,6 +636,7 @@ $(function() {
 				fire.vy = fire.base.vy;
 				fire.ax = Math.random() * 0.06 - 0.03;
 				fire.alpha = 1;
+			
 			}
 			else if (fire.hold && fire.delay > 0) {
 				fire.delay--;
@@ -712,6 +698,7 @@ $(function() {
 		for (var i = listSpecial.length - 1; i >= 0; i--) {
 			var special = listSpecial[i];
 			if (special.y <= special.far) {
+			
 				// light
 				lights.push({ x: special.x, y: special.y, color: special.fill, alpha: 0.02, radius: range * 2 });
 				//

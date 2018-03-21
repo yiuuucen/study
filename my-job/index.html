@@ -17,15 +17,15 @@
 					<ul>
 						<li></li>
 						<li><a href="">首页</a></li>
-						<li><a href="">作品集</a></li>
+						<li><a href="./design.html">作品集</a></li>
 						<li><a href="">我的设计</a></li>
 						<li><a href="">关于我</a></li>
 					</ul>
 				</div>
 				<div class="head-right">
 					<ol>
-						<li><a href="">登录</a></li>
-						<li><a href="">注册</a></li>
+						<li><a href="./login.html">登录</a></li>
+						<li><a href="./register.html">注册</a></li>
 					</ol>
 				</div>
 			</div>
@@ -65,7 +65,7 @@
 	</div>
 	<script>
 		// 每次加载首页，首页的颜色都会随机生成
-		$(".index .head-left ul li:nth-child(2)>a").css("color",getRandomColor);
+		$(".header .head-left ul li:nth-child(2)>a").css("color",getRandomColor);
 		// 获取屏幕高度-head-foot
 		var h= $(window).height();
 		$(".content").height(h-130);

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<link rel="shortcut icon" href="hh.ico">
+	<link rel="stylesheet" href="cenu_css/reset.css">
+	<link rel="stylesheet" href="cenu_css/style.css">
+	<script src="cenu_js/jquery-3.2.1.min.js"></script>
+	<script src="cenu_js/index.js"></script>
+</head>
+<body>
+	<div class="design">
+		<div class="header">
+			<div class="container heade">
+				<div class="head-left">
+					<ul>
+						<li></li>
+						<li><a href="./index.html">首页</a></li>
+						<li><a href="">作品集</a></li>
+						<li><a href="">我的设计</a></li>
+						<li><a href="">关于我</a></li>
+					</ul>
+				</div>
+				<div class="head-right">
+					<ol>
+						<li><a href="./login.html">登录</a></li>
+						<li><a href="./register.html">注册</a></li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="container">
+				
+			</div>
+		</div>
+		<div class="footer">版权所有 © 2018 yiuuucen | 毕业设计</div>
+	</div>
+	<script>
+		// 每次加载首页，首页的颜色都会随机生成
+		$(".header .head-left ul li:nth-child(3)>a").css("color",getRandomColor);
+		// 获取屏幕高度-head-foot
+		var h= $(window).height();
+		$(".content").height(h-130);
+	</script>
+</body>
+</html>
