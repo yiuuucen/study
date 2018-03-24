@@ -18,7 +18,7 @@
 						<li></li>
 						<li><a href="">首页</a></li>
 						<li><a href="./design.html">作品集</a></li>
-						<li><a href="">我的设计</a></li>
+						<li><a href="./my-design.html">我的设计</a></li>
 						<li><a href="">关于我</a></li>
 					</ul>
 				</div>
@@ -61,14 +61,13 @@
 				</div>
 			</div>
 		</div>
-		<div class="footer">版权所有 © 2018 yiuuucen | 毕业设计</div>
 	</div>
 	<script>
 		// 每次加载首页，首页的颜色都会随机生成
 		$(".header .head-left ul li:nth-child(2)>a").css("color",getRandomColor);
 		// 获取屏幕高度-head-foot
 		var h= $(window).height();
-		$(".content").height(h-130);
+		$(".content").height(h-70);
 		//banner图效果
 		function change_banner(num){
 		    //获取当前显示图片的索引；

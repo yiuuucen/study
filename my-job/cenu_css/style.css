@@ -19,6 +19,76 @@ html,body{
 }
 /*公共样式  end*/
 
+
+/*分页样式  所有页面的分页样式都相同*/
+.fenye{
+  height: 40px;
+  margin: 45px auto 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fenye a{
+  display: inline-block;
+  height: 28px;
+  margin-left: 12px;
+  padding: 0 10px;
+  color: #000;
+  line-height: 28px;
+  text-align: center;
+  font-family: "Microsoft YaHei",serif;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #9d9fa6;
+  border-radius: 3px;
+}
+.fenye span{
+  display: inline-block;
+  height: 28px;
+  margin-left: 12px;
+  padding: 0 10px;
+  color: #fff;
+  line-height: 28px;
+  text-align: center;
+  font-family: "Microsoft YaHei",serif;
+  font-size: 14px;
+  background-color: #2f3242;
+  border: 1px solid #9d9fa6;
+}
+.fenye span.active{
+  background: #2196f3;
+  border: 1px solid #2196f3;
+  border-radius: 3px;
+}
+.fenye .prev{
+  background-color: #2196f3;
+  border:none;
+}
+.fenye .next{
+  background-color: #2196f3;
+  border:none;
+}
+.fenye .jump-ipt{
+  display: inline-block;
+  width: 60px;
+  height: 28px;
+  margin-left: 12px;
+  padding: 0 10px;
+  color: #000;
+  line-height: 28px;
+  text-align: center;
+  font-family: "Microsoft YaHei",serif;
+  font-size: 14px;
+  border: 1px solid #000;
+  background:#fff;
+  border-radius: 3px;
+}
+.fenye .jump-btn{
+  background-color: #2196f3;
+  border: none;
+  width: 65px;
+}
+
 /*index.html start*/
 .index{
 	width: 100%;
@@ -32,7 +102,7 @@ html,body{
 
 }
 .index .header .heade{
-	width: 1050px;
+	/*width: 1050px;*/
 	height: 70px;
 	margin: 0 auto;
 }
@@ -204,16 +274,6 @@ html,body{
 	letter-spacing: 1px;
     line-height: 2;
 }
-.index .footer{
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	height: 60px;
-	line-height: 60px;
-	background: rgba(0,0,0,0.4);
-	text-align: center;
-	color: #fff;
-}
 /*index.html end*/
 
 /*登录注册页面  login register Start*/
@@ -255,7 +315,7 @@ html,body{
     text-align: center;
     background:rgba(255,255,255,0.15);
     color: #fff;
-    border-radius: 50px;
+    border-radius: 20px;
     padding:15px 0 50px ;
     margin: 20px 0;
 }
@@ -338,18 +398,24 @@ html,body{
 
 /*作品集页面   design  Start*/
 .design{
+	
+}
+.design .fixbg{
 	width: 100%;
 	height: 100%;
 	background: url(../cenu_img/index-img/index-bg.jpg) no-repeat ;
 	background-size: cover;
+	position: fixed;
+	z-index: -9999;
 }
 .design .header{
+	width: 100%;
 	height: 70px;
 	background: rgba(0,0,0,0.4);
-
+	position: absolute;
 }
 .design .header .heade{
-	width: 1050px;
+	/*width: 1050px;*/
 	height: 70px;
 	margin: 0 auto;
 }
@@ -423,14 +489,371 @@ html,body{
     right: -6px;
     top: 50%;
 }
-.design .footer{
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	height: 60px;
-	line-height: 60px;
-	background: rgba(0,0,0,0.4);
+.design .content{
+	overflow: hidden;
+	position: relative;
+	top: 70px;
+}
+.design .content .shaixuan{
+	height: 45px;
+	background: rgba(255,255,255,0.5);
+	border: 1px solid rgba(0,0,0,0.4);
+	margin: 30px 0;
+	display: flex;
+	align-items: center;
 	text-align: center;
-	color: #fff;
+}
+.design .content .shaixuan b{
+	width: 100px;	
+	font-size: 25px;
+}
+.design .content .shaixuan span{
+	border-left: 1px solid rgba(0,0,0,0.4);
+	padding: 12px 30px; 
+	cursor: pointer;
+}
+.design .content .shaixuan span:last-child{
+	border-right: 1px solid rgba(0,0,0,0.4);
+}
+.design .content .zuopin{
+	overflow: hidden;
+	display: flex;
+	flex-flow: row wrap;
+}
+.design .content .zuopin .zp{
+	width: 270px;
+	height: 320px;
+	background: rgba(238,238,238,0.6);
+	border:2px solid ;
+	box-sizing: border-box;
+	margin: 30px 35px 0 0;
+	padding: 1%;
+	position: relative;
+}
+.design .content .zuopin .zp a{
+	position: absolute;
+	width: 90%;
+	height: 163px;
+}
+.design .content .zuopin .zp:nth-child(4n){
+	margin: 30px 0 0 0;
+	/*background: red;*/
+}
+.design .content .zuopin .zp>img{
+	width: 100%;
+}
+/*.design .content .zuopin .zp p{
+	width: 100%;
+	text-indent: 2em;
+	font-weight: bold;
+	height: 35px;
+	font-size: 13px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}*/
+.design .content .zuopin .zp h3{
+	height: 40px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 40px;
+} 
+.design .content .zuopin .zp>span{
+
+}
+.design .content .zuopin .zp h5{
+	padding: 15px 0;
+	border-bottom: 1px dashed #000;
+}
+.design .content .zuopin .zp .zp-bottom{
+	height: 30px;
+	display: flex;
+	align-items: center;
+}
+.design .content .zuopin .zp .zp-bottom img{
+	height: 12px;
+	cursor: pointer;
+}
+.design .content .zuopin .zp .zp-bottom span{
+	height: 20px;
+	margin: 0 10px;
+	font-size: 13px;
+}
+.design .content .fenye{
+	height: 50px;
 }
 /*作品集页面   design  End*/
+
+/*我的作品页面   my-design  Start*/
+.my-design{
+	
+}
+.my-design .header{
+	width: 100%;
+	height: 70px;
+	background: rgba(0,0,0,0.4);
+	position: absolute;
+	z-index: 9999;
+}
+.my-design .header .heade{
+	/*width: 1050px;*/
+	height: 70px;
+	margin: 0 auto;
+}
+.my-design .head-left{
+	float: left;
+	height: 100%;
+}
+.my-design .head-left ul{
+	height: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+.my-design .head-left ul li{
+	width: 80px;
+	height:50px;
+	margin: 10px;
+	text-align: center;
+	line-height: 50px;
+	position: relative;
+}
+.my-design .head-left ul li:first-child{
+	width: 65px;
+	margin: 10px 40px 10px 10px;
+}
+.my-design .head-left ul li a{
+	font-weight: bold;
+	font-size: 20px;
+}
+.my-design .head-left ul li a:after{
+	content: '';
+    width: 3px;
+    height: 3px;
+    background: #fff;
+    display: block;
+    position: absolute;
+    right: -6px;
+    top: 50%;
+}
+.my-design .head-left ul li:first-child{
+	background: url(../cenu_img/logo.png) center center no-repeat;
+	background-size: cover;
+}
+.my-design .head-right{
+	float: right;
+	height: 100%;
+}
+.my-design .head-right ol{
+	height: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+.my-design .head-right ol li{
+	width: 80px;
+	margin: 10px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	position: relative;
+}
+.my-design .head-right ol li a{
+	font-weight: bold;
+	font-size: 20px;
+}
+.my-design .head-right ol li a:after{
+	content: '';
+    width: 3px;
+    height: 3px;
+    background: #fff;
+    display: block;
+    position: absolute;
+    right: -6px;
+    top: 50%;
+}
+.my-design .fixleft{
+	width: 24%;
+	height: 98%;
+	position: fixed;
+	padding: 1% 0 1% 1%;
+	border-right: 1px dashed #333;
+}
+.my-design .fixleft>div:nth-child(1){
+	height: 25%;
+	border-bottom: 1px dashed #999;
+}
+.my-design .fixleft>div:nth-child(1) h5{
+	height: 30%;
+    color: #000;
+    font-size: 18px;
+    padding: 10px 30px;
+    box-sizing: border-box;
+}
+.my-design .fixleft>div:nth-child(1) img{
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	float: left;
+}
+.my-design .fixleft>div:nth-child(1) h3{
+	float: left;
+	width: 200px;
+	padding: 10px;
+}	
+.my-design .fixleft>div:nth-child(1) h4{
+	float: left;
+	width: 200px;
+	padding: 10px;
+	color: #666;
+}
+.my-design .fixleft>div:nth-child(2){
+	border-bottom: 1px dashed #999;
+	height: 25%;
+}
+.my-design .fixleft>div:nth-child(2)>div{
+	height: 38px;
+	line-height: 38px;
+}
+.my-design .fixleft>div:nth-child(2)>div img{
+	width: 15px;
+}
+.my-design .fixleft>div:nth-child(2)>div span{
+	margin: 0 0 0 10px;
+}
+.my-design .fixleft>div:nth-child(2)>div em{
+	float: right;
+	margin: 0 10px 0 0;
+	font-style: normal;
+}
+.my-design .fixleft>div:nth-child(3){
+	border-bottom: 1px dashed #999;
+	height: 15%;
+}
+.my-design .fixleft>div:nth-child(3) h3{
+	padding: 10px 0;
+}
+.my-design .fixleft>div:nth-child(3) h4{
+	font-size: 13px;
+	padding: 10px 0;
+	color: #666;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+}
+.my-design .fixleft>div:nth-child(4){
+	border-bottom: 1px dashed #999;
+	height: 15%;
+	overflow: hidden;
+}
+.my-design .fixleft>div:nth-child(4) h3{
+	margin: 10px 0; 
+}
+.my-design .fixleft>div:nth-child(4) h4{
+	margin: 5px 0;
+	color: #666;
+	font-size: 15px;
+}
+.my-design .fixleft>div:nth-child(4) h5{
+	margin: 5px 0;
+	color: #666;
+	font-size: 15px;
+}
+.my-design .fixleft>div:nth-child(5){
+	height: 20%
+}
+.my-design .fixleft>div:nth-child(5) h3{
+	padding:  10px 0;
+}
+.my-design .fixleft>div:nth-child(5) p{
+	font-size: 13px;
+	color: #666;
+	overflow: hidden;
+	text-indent: 2em;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+.my-design .nofixright{
+	width: 75%;
+	left: 25%;
+	/*top: 70px;*/
+	height: 900px;
+	position: relative;
+	/*background: pink;*/
+}
+.my-design .nofixright .zptop{
+	width: 180px;
+	margin: 0 auto;
+	height: 60px;
+	line-height: 60px;
+	box-sizing: border-box;
+	text-align: center;
+	display: flex;
+	margin: 0 auto;
+}
+.my-design .nofixright .zptop span{
+	display: block;
+	width: 60px;
+	/*border-bottom: 3px solid #666;*/
+	box-sizing: border-box;
+	text-align: center;
+	cursor: pointer;
+}
+.my-design .nofixright .zptop span:nth-child(2){
+	border-bottom: 3px solid #666;
+}
+.my-design .nofixright .zpbottom .zuopin{
+	overflow: hidden;
+	display: flex;
+	flex-flow: row wrap;
+}
+.my-design .nofixright .zpbottom .zuopin .zp{
+	width: 270px;
+	height: 320px;
+	background: rgba(238,238,238,0.6);
+	border:2px solid ;
+	box-sizing: border-box;
+	margin: 30px 30px 0;
+	padding: 1%;
+	position: relative;
+}
+.my-design .nofixright .zpbottom .zuopin .zp a{
+	position: absolute;
+	width: 90%;
+	height: 163px;
+}
+.my-design .nofixright .zpbottom .zuopin .zp>img{
+	width: 100%;
+}
+.my-design .nofixright .zpbottom .zuopin .zp h3{
+	height: 40px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 40px;
+} 
+.my-design .nofixright .zpbottom .zuopin .zp h5{
+	padding: 15px 0;
+	border-bottom: 1px dashed #000;
+}
+.my-design .nofixright .zpbottom .zuopin .zp .zp-bottom{
+	height: 30px;
+	display: flex;
+	align-items: center;
+}
+.my-design .nofixright .zpbottom .zuopin .zp .zp-bottom img{
+	height: 12px;
+	cursor: pointer;
+}
+.my-design .nofixright .zpbottom .zuopin .zp .zp-bottom span{
+	height: 20px;
+	margin: 0 10px;
+	font-size: 13px;
+}
+.my-design .nofixright .zpbottom .fenye{
+	height: 50px;
+}
+/*我的作品页面   my-design  End*/

@@ -11,35 +11,52 @@
 	<script src="cenu_js/lib/jquery.pagination.js"></script>
 </head>
 <body> 
-	<div class="design">
-		<div class="header">
-			<div class="container heade">
-				<div class="head-left">
-					<ul>
-						<li></li>
-						<li><a href="./index.html">首页</a></li>
-						<li><a href="">作品集</a></li>
-						<li><a href="./my-design.html">我的设计</a></li>
-						<li><a href="">关于我</a></li>
-					</ul>
+	<div class="my-design">
+		<div class="fixleft">
+			<div>
+				<!-- h5表示姓名 -->
+				<h5>胡成</h5>
+				<img src="cenu_img/my-design-img/tou.jpg" alt="">
+				<!-- h3表示职业 -->
+				<h3>学生</h3>
+				<!-- h4表示目前居住地 -->
+				<h4>北京 昌平</h4>
+			</div>
+			<div>
+				<div>
+					<img src="cenu_img/design-img/see.png" alt=""><span>项目人气</span></img><em>9247</em>
 				</div>
-				<div class="head-right">
-					<ol>
-						<li><a href="./login.html">登录</a></li>
-						<li><a href="./register.html">注册</a></li>
-					</ol>
+				<div>
+					<img src="cenu_img/design-img/zan01.png" alt=""><span>得赞数</span></img><em>666</em>
+				</div>
+				<div>
+					<img src="cenu_img/design-img/zan02.png" alt=""><span>关注者</span></img><em>123</em>
+				</div>
+				<div>
+					<img src="cenu_img/design-img/zan02.png" alt=""><span>被关注</span></img><em>456</em>
 				</div>
 			</div>
+			<div>
+				<h3>创意领域</h3>
+				<h4>图形设计，排版业，品牌推广</h4>
+			</div>
+			<div>
+				<h3>联系方式</h3>
+				<h4>QQ:<span>1784373887</span></h4>
+				<h5>TEL:<span>15510507940</span></h5>
+			</div>
+			<div>
+				<h3>介绍自己</h3>
+				<p>这个人很LAN什么都没留下~~</p>
+			</div>
 		</div>
-		<div class="fixbg"></div>
-		<div class="content">
-			<div class="container">
-				<div class="shaixuan">
-					<b>筛选</b>
-					<span>作品时间</span>
-					<span>点赞数</span>
-					<span>浏览数</span>
-				</div>
+		<div class="nofixright">
+			<div class="zptop">
+				<span>首页</span>
+				<span>项目</span>
+				<span>设计</span>
+			</div>
+			<div class="zpbottom">
 				<div class="zuopin">
 					<div class="zp">
 						<a href=""></a>
@@ -132,10 +149,21 @@
 		</div>
 	</div>
 	<script>
-		// 每次加载首页，首页的颜色都会随机生成
-		$(".header .head-left ul li:nth-child(3)>a").css("color",getRandomColor);
+		
+		$(".zptop span").click(function(){
+			if($(this).html()=="首页"){
+				window.location.href = "./index.html";
+			}else if($(this).html()=="项目"){
+				window.location.href = "./my-design.html";
+			}else if($(this).html()=="设计"){
+				window.location.href = "./detail.html";
+			}
+		})
 
-		$(".design .content .zuopin .zp").css("border-color",getRandomColor);
+
+		// 每次加载首页，首页的颜色都会随机生成
+		$(".header .head-left ul li:nth-child(4)>a").css("color",getRandomColor);
+
 		// 分页的配置
 		$('.M-box').pagination({
 			pageCount:56,
@@ -157,6 +185,7 @@
 		}, function (api) {
     		
 		}); 
+
 	</script>
 </body>
 </html>
