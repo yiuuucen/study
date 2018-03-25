@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>作品集</title>
+	<title>项目</title>
 	<link rel="shortcut icon" href="hh.ico">
 	<link rel="stylesheet" href="cenu_css/reset.css">
 	<link rel="stylesheet" href="cenu_css/style.css">
@@ -30,15 +30,15 @@
 					<img src="cenu_img/design-img/zan01.png" alt=""><span>得赞数</span></img><em>666</em>
 				</div>
 				<div>
-					<img src="cenu_img/design-img/zan02.png" alt=""><span>关注者</span></img><em>123</em>
+					<img src="cenu_img/design-img/zan02.png" alt=""><span>作品数</span></img><em>123</em>
 				</div>
 				<div>
-					<img src="cenu_img/design-img/zan02.png" alt=""><span>被关注</span></img><em>456</em>
+					<img src="cenu_img/design-img/zan02.png" alt=""><span>----</span></img><em>---</em>
 				</div>
 			</div>
 			<div>
-				<h3>创意领域</h3>
-				<h4>图形设计，排版业，品牌推广</h4>
+				<h3>擅长爱好</h3>
+				<h4>运动，看书，听音乐</h4>
 			</div>
 			<div>
 				<h3>联系方式</h3>
@@ -55,11 +55,12 @@
 				<span>首页</span>
 				<span>项目</span>
 				<span>设计</span>
+				<span>个人</span>
 			</div>
 			<div class="zpbottom">
 				<div class="zuopin">
 					<div class="zp">
-						<a href=""></a>
+						<a href="./detail.html" target="_blank"></a>
 						<img src="cenu_img/design-img/zp01.png" alt="">
 						<!-- <p>设计出心型的烟花，当它在天上绽放的时候，会有很好的视觉效果，可用于情侣之间。</p> -->
 						<!-- h3表示作品名 -->
@@ -76,7 +77,7 @@
 						</div>
 					</div>
 					<div class="zp">
-						<a href=""></a>
+						<a href="./detail.html" target="_blank"></a>
 						<img src="cenu_img/design-img/zp01.png" alt="">
 						<!-- <p>设计出心型的烟花，当它在天上绽放的时候，会有很好的视觉效果，可用于情侣之间。</p> -->
 						<!-- h3表示作品名 -->
@@ -93,7 +94,7 @@
 						</div>
 					</div>
 					<div class="zp">
-						<a href=""></a>
+						<a href="./detail.html" target="_blank"></a>
 						<img src="cenu_img/design-img/zp01.png" alt="">
 						<!-- <p>设计出心型的烟花，当它在天上绽放的时候，会有很好的视觉效果，可用于情侣之间。</p> -->
 						<!-- h3表示作品名 -->
@@ -110,7 +111,7 @@
 						</div>
 					</div>
 					<div class="zp">
-						<a href=""></a>
+						<a href="./detail.html" target="_blank"></a>
 						<img src="cenu_img/design-img/zp01.png" alt="">
 						<!-- <p>设计出心型的烟花，当它在天上绽放的时候，会有很好的视觉效果，可用于情侣之间。</p> -->
 						<!-- h3表示作品名 -->
@@ -127,7 +128,7 @@
 						</div>
 					</div>
 					<div class="zp">
-						<a href=""></a>
+						<a href="./detail.html" target="_blank"></a>
 						<img src="cenu_img/design-img/zp01.png" alt="">
 						<!-- <p>设计出心型的烟花，当它在天上绽放的时候，会有很好的视觉效果，可用于情侣之间。</p> -->
 						<!-- h3表示作品名 -->
@@ -156,13 +157,12 @@
 			}else if($(this).html()=="项目"){
 				window.location.href = "./my-design.html";
 			}else if($(this).html()=="设计"){
-				window.location.href = "./detail.html";
+				window.location.href = "./make-detail.html";
+			}else if($(this).html()=="个人"){
+				window.location.href = "./person.html";
 			}
 		})
 
-
-		// 每次加载首页，首页的颜色都会随机生成
-		$(".header .head-left ul li:nth-child(4)>a").css("color",getRandomColor);
 
 		// 分页的配置
 		$('.M-box').pagination({

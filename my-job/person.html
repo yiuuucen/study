@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>作品详情</title>
+	<title>个人中心</title>
 	<link rel="shortcut icon" href="hh.ico">
 	<link rel="stylesheet" href="cenu_css/reset.css">
 	<link rel="stylesheet" href="cenu_css/style.css">
@@ -11,7 +11,7 @@
 	<script src="cenu_js/lib/jquery.pagination.js"></script>
 </head>
 <body> 
-	<div class="detail">
+	<div class="person">
 		<div class="fixleft">
 			<div>
 				<!-- h5表示姓名 -->
@@ -51,32 +51,64 @@
 			</div>
 		</div>
 		<div class="nofixright">
-			<h3>作品详情</h3>
-			<div class="zpdetail">
+			<div class="zptop">
+				<span>首页</span>
+				<span>项目</span>
+				<span>设计</span>
+				<span>个人</span>
+			</div>
+			<div class="personMsg">
+				<img src="cenu_img/my-design-img/tou.jpg" alt="">
 				<div>
-					<span>作品名:</span>
-					<h3>heart-心-heart</h3>
+					<span>姓名:</span>
+					<input type="text">
 				</div>
 				<div>
-					<span>作品：</span>
-					<img src="cenu_img/design-img/zp01.png" alt="">
+					<span>职业:</span>
+					<input type="text">
 				</div>
 				<div>
-					<span>作品介绍:</span>
-					<p>设计出心型的烟花，当它在天上绽放的时候，会有很好的视觉效果，可用于情侣之间。设计出心型的烟花，当它在天上绽放的时候，会有很好的视觉效果，可用于情侣之间。</p>
+					<span>居住地:</span>
+					<input type="text">
 				</div>
 				<div>
-					<span>作品时间:</span>
-					<em>2018-03-25</em>
+					<span>擅长爱好:</span>
+					<input type="text">
 				</div>
-				<!-- <div>
+				<div>
+					<span>TEL:</span>
+					<input type="text">
+				</div>
+				<div>
+					<span>QQ:</span>
+					<input type="text">
+				</div>
+				<div>
+					<span>介绍自己:</span>
+					<textarea name="" id="" cols="30" rows="10"></textarea>
+				</div>
+				<div>
 					<span></span>
-					<div>删除</div>
-				</div> -->
+					<h3>保存提交</h3>
+				</div>
 			</div>
 		</div>
 	</div>
 	<script>
+		
+		$(".zptop span").click(function(){
+			if($(this).html()=="首页"){
+				window.location.href = "./index.html";
+			}else if($(this).html()=="项目"){
+				window.location.href = "./my-design.html";
+			}else if($(this).html()=="设计"){
+				window.location.href = "./make-detail.html";
+			}else if($(this).html()=="个人"){
+				window.location.href = "./person.html";
+			}
+		})
+
+
 
 
 	</script>

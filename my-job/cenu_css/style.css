@@ -147,7 +147,10 @@ html,body{
 }
 .index .head-right{
 	float: right;
-	height: 100%;
+	height: 70px;
+	line-height: 70px;
+	display: flex;
+	align-items: center;
 }
 .index .head-right ol{
 	height: 100%;
@@ -176,7 +179,36 @@ html,body{
     right: -6px;
     top: 50%;
 }
-
+.index .head-right img{
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	cursor: pointer;
+}
+.index .head-right span{
+	color: #fff;
+	margin: 0 0 0 20px;
+}
+.index .head-right .head-cont{
+	position: absolute;
+	z-index: 9999;
+	width: 150px;
+	top: 70px;
+	display: none;
+}
+.index .head-right .head-cont a{
+	display: block;
+	float: left;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-style: normal;
+	cursor: pointer;
+	color: #fff;
+	background: rgba(000,000,000,0.8);
+	border: 1px dashed #666;
+}
 .index .content{
 
 }
@@ -460,7 +492,9 @@ html,body{
 }
 .design .head-right{
 	float: right;
-	height: 100%;
+	height: 70px;
+	display: flex;
+	align-items: center;
 }
 .design .head-right ol{
 	height: 100%;
@@ -488,6 +522,36 @@ html,body{
     position: absolute;
     right: -6px;
     top: 50%;
+}
+.design .head-right img{
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	cursor: pointer;
+}
+.design .head-right span{
+	color: #fff;
+	margin: 0 0 0 20px;
+}
+.design .head-right .head-cont{
+	position: absolute;
+	z-index: 9999;
+	width: 150px;
+	top: 70px;
+	display: none;
+}
+.design .head-right .head-cont a{
+	display: block;
+	float: left;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-style: normal;
+	cursor: pointer;
+	color: #fff;
+	background: rgba(000,000,000,0.8);
+	border: 1px dashed #666;
 }
 .design .content{
 	overflow: hidden;
@@ -562,7 +626,7 @@ html,body{
 	line-height: 40px;
 } 
 .design .content .zuopin .zp>span{
-
+	cursor: pointer;
 }
 .design .content .zuopin .zp h5{
 	padding: 15px 0;
@@ -591,90 +655,9 @@ html,body{
 .my-design{
 	
 }
-.my-design .header{
-	width: 100%;
-	height: 70px;
-	background: rgba(0,0,0,0.4);
-	position: absolute;
-	z-index: 9999;
-}
-.my-design .header .heade{
-	/*width: 1050px;*/
-	height: 70px;
-	margin: 0 auto;
-}
-.my-design .head-left{
-	float: left;
-	height: 100%;
-}
-.my-design .head-left ul{
-	height: 100%;
-	display: flex;
-	justify-content: flex-start;
-}
-.my-design .head-left ul li{
-	width: 80px;
-	height:50px;
-	margin: 10px;
-	text-align: center;
-	line-height: 50px;
-	position: relative;
-}
-.my-design .head-left ul li:first-child{
-	width: 65px;
-	margin: 10px 40px 10px 10px;
-}
-.my-design .head-left ul li a{
-	font-weight: bold;
-	font-size: 20px;
-}
-.my-design .head-left ul li a:after{
-	content: '';
-    width: 3px;
-    height: 3px;
-    background: #fff;
-    display: block;
-    position: absolute;
-    right: -6px;
-    top: 50%;
-}
-.my-design .head-left ul li:first-child{
-	background: url(../cenu_img/logo.png) center center no-repeat;
-	background-size: cover;
-}
-.my-design .head-right{
-	float: right;
-	height: 100%;
-}
-.my-design .head-right ol{
-	height: 100%;
-	display: flex;
-	justify-content: flex-start;
-}
-.my-design .head-right ol li{
-	width: 80px;
-	margin: 10px;
-	height: 50px;
-	text-align: center;
-	line-height: 50px;
-	position: relative;
-}
-.my-design .head-right ol li a{
-	font-weight: bold;
-	font-size: 20px;
-}
-.my-design .head-right ol li a:after{
-	content: '';
-    width: 3px;
-    height: 3px;
-    background: #fff;
-    display: block;
-    position: absolute;
-    right: -6px;
-    top: 50%;
-}
 .my-design .fixleft{
 	width: 24%;
+	min-width: 350px;
 	height: 98%;
 	position: fixed;
 	padding: 1% 0 1% 1%;
@@ -779,13 +762,10 @@ html,body{
 .my-design .nofixright{
 	width: 75%;
 	left: 25%;
-	/*top: 70px;*/
-	height: 900px;
 	position: relative;
-	/*background: pink;*/
 }
 .my-design .nofixright .zptop{
-	width: 180px;
+	width: 240px;
 	margin: 0 auto;
 	height: 60px;
 	line-height: 60px;
@@ -857,3 +837,506 @@ html,body{
 	height: 50px;
 }
 /*我的作品页面   my-design  End*/
+
+/*作品细节页面   detail  Start*/
+.detail{
+	
+}
+.detail .fixleft{
+	width: 24%;
+	min-width: 350px;
+	height: 98%;
+	position: fixed;
+	padding: 1% 0 1% 1%;
+	border-right: 1px dashed #333;
+}
+.detail .fixleft>div:nth-child(1){
+	height: 25%;
+	border-bottom: 1px dashed #999;
+}
+.detail .fixleft>div:nth-child(1) h5{
+	height: 30%;
+    color: #000;
+    font-size: 18px;
+    padding: 10px 30px;
+    box-sizing: border-box;
+}
+.detail .fixleft>div:nth-child(1) img{
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	float: left;
+}
+.detail .fixleft>div:nth-child(1) h3{
+	float: left;
+	width: 200px;
+	padding: 10px;
+}	
+.detail .fixleft>div:nth-child(1) h4{
+	float: left;
+	width: 200px;
+	padding: 10px;
+	color: #666;
+}
+.detail .fixleft>div:nth-child(2){
+	border-bottom: 1px dashed #999;
+	height: 25%;
+}
+.detail .fixleft>div:nth-child(2)>div{
+	height: 38px;
+	line-height: 38px;
+}
+.detail .fixleft>div:nth-child(2)>div img{
+	width: 15px;
+}
+.detail .fixleft>div:nth-child(2)>div span{
+	margin: 0 0 0 10px;
+}
+.detail .fixleft>div:nth-child(2)>div em{
+	float: right;
+	margin: 0 10px 0 0;
+	font-style: normal;
+}
+.detail .fixleft>div:nth-child(3){
+	border-bottom: 1px dashed #999;
+	height: 15%;
+}
+.detail .fixleft>div:nth-child(3) h3{
+	padding: 10px 0;
+}
+.detail .fixleft>div:nth-child(3) h4{
+	font-size: 13px;
+	padding: 10px 0;
+	color: #666;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+}
+.detail .fixleft>div:nth-child(4){
+	border-bottom: 1px dashed #999;
+	height: 15%;
+	overflow: hidden;
+}
+.detail .fixleft>div:nth-child(4) h3{
+	margin: 10px 0; 
+}
+.detail .fixleft>div:nth-child(4) h4{
+	margin: 5px 0;
+	color: #666;
+	font-size: 15px;
+}
+.detail .fixleft>div:nth-child(4) h5{
+	margin: 5px 0;
+	color: #666;
+	font-size: 15px;
+}
+.detail .fixleft>div:nth-child(5){
+	height: 20%
+}
+.detail .fixleft>div:nth-child(5) h3{
+	padding:  10px 0;
+}
+.detail .fixleft>div:nth-child(5) p{
+	font-size: 13px;
+	color: #666;
+	overflow: hidden;
+	text-indent: 2em;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+.detail .nofixright{
+	width: 75%;
+	left: 25%;
+	position: relative;
+}
+.detail .nofixright>h3{
+	text-align: center;
+	padding: 20px;
+}
+.detail .nofixright .zpdetail{
+	margin: 40px auto;
+}
+.detail .nofixright .zpdetail>div{
+	display: flex;
+	width: 666px;
+	margin: 0 auto 20px;
+}
+.detail .nofixright .zpdetail>div span{
+	display: block;
+	width: 200px;
+	padding: 0 20px 0 0;
+	text-align: right;
+}
+.detail .nofixright .zpdetail>div h3{
+	height: 50px;
+}
+.detail .nofixright .zpdetail>div img{
+	width: 280px;
+}
+.detail .nofixright .zpdetail>div p{
+	width: 400px;
+}
+.detail .nofixright .zpdetail>div div{
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	background: red;
+	color: #fff;
+	text-align: center;
+	border-radius: 10px;
+	cursor: pointer;
+	/*padding: 20px;*/
+}
+/*作品细节页面   detail  End*/
+
+/*设计作品页面   make-detail  Start*/
+.make-detail{
+	
+}
+.make-detail .fixleft{
+	width: 24%;
+	min-width: 350px;
+	height: 98%;
+	position: fixed;
+	padding: 1% 0 1% 1%;
+	border-right: 1px dashed #333;
+}
+.make-detail .fixleft>div:nth-child(1){
+	height: 25%;
+	border-bottom: 1px dashed #999;
+}
+.make-detail .fixleft>div:nth-child(1) h5{
+	height: 30%;
+    color: #000;
+    font-size: 18px;
+    padding: 10px 30px;
+    box-sizing: border-box;
+}
+.make-detail .fixleft>div:nth-child(1) img{
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	float: left;
+}
+.make-detail .fixleft>div:nth-child(1) h3{
+	float: left;
+	width: 200px;
+	padding: 10px;
+}	
+.make-detail .fixleft>div:nth-child(1) h4{
+	float: left;
+	width: 200px;
+	padding: 10px;
+	color: #666;
+}
+.make-detail .fixleft>div:nth-child(2){
+	border-bottom: 1px dashed #999;
+	height: 25%;
+}
+.make-detail .fixleft>div:nth-child(2)>div{
+	height: 38px;
+	line-height: 38px;
+}
+.make-detail .fixleft>div:nth-child(2)>div img{
+	width: 15px;
+}
+.make-detail .fixleft>div:nth-child(2)>div span{
+	margin: 0 0 0 10px;
+}
+.make-detail .fixleft>div:nth-child(2)>div em{
+	float: right;
+	margin: 0 10px 0 0;
+	font-style: normal;
+}
+.make-detail .fixleft>div:nth-child(3){
+	border-bottom: 1px dashed #999;
+	height: 15%;
+}
+.make-detail .fixleft>div:nth-child(3) h3{
+	padding: 10px 0;
+}
+.make-detail .fixleft>div:nth-child(3) h4{
+	font-size: 13px;
+	padding: 10px 0;
+	color: #666;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+}
+.make-detail .fixleft>div:nth-child(4){
+	border-bottom: 1px dashed #999;
+	height: 15%;
+	overflow: hidden;
+}
+.make-detail .fixleft>div:nth-child(4) h3{
+	margin: 10px 0; 
+}
+.make-detail .fixleft>div:nth-child(4) h4{
+	margin: 5px 0;
+	color: #666;
+	font-size: 15px;
+}
+.make-detail .fixleft>div:nth-child(4) h5{
+	margin: 5px 0;
+	color: #666;
+	font-size: 15px;
+}
+.make-detail .fixleft>div:nth-child(5){
+	height: 20%
+}
+.make-detail .fixleft>div:nth-child(5) h3{
+	padding:  10px 0;
+}
+.make-detail .fixleft>div:nth-child(5) p{
+	font-size: 13px;
+	color: #666;
+	overflow: hidden;
+	text-indent: 2em;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+.make-detail .nofixright{
+	width: 75%;
+	left: 25%;
+	position: relative;
+}
+.make-detail .nofixright .zptop{
+	width: 240px;
+	margin: 0 auto;
+	height: 60px;
+	line-height: 60px;
+	box-sizing: border-box;
+	text-align: center;
+	display: flex;
+	margin: 0 auto 20px;
+}
+.make-detail .nofixright .zptop span{
+	display: block;
+	width: 60px;
+	/*border-bottom: 3px solid #666;*/
+	box-sizing: border-box;
+	text-align: center;
+	cursor: pointer;
+}
+.make-detail .nofixright .zptop span:nth-child(3){
+	border-bottom: 3px solid #666;
+}
+.make-detail .nofixright .zpdetail{
+	margin: 40px auto;
+}
+.make-detail .nofixright>h3{
+	text-align: center;
+	margin: 20px 0;
+}
+.make-detail .nofixright .zpdetail>div{
+	display: flex;
+	width: 666px;
+	margin: 0 auto 20px;
+}
+.make-detail .nofixright .zpdetail>div span{
+	display: block;
+	width: 250px;
+	padding: 0 20px 0 0;
+	text-align: right;
+}
+.make-detail .nofixright .zpdetail>div h3{
+	height: 50px;
+}
+.make-detail .nofixright .zpdetail>div img{
+	width: 280px;
+}
+.make-detail .nofixright .zpdetail>div p{
+	width: 400px;
+}
+.make-detail .nofixright .zpdetail>div div{
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	background: red;
+	color: #fff;
+	text-align: center;
+	border-radius: 10px;
+	cursor: pointer;
+	/*padding: 20px;*/
+}
+/*设计作品页面   make-detail  End*/
+
+/*个人中心 person start*/
+
+.person{
+	
+}
+.person .fixleft{
+	width: 24%;
+	min-width: 350px;
+	height: 98%;
+	position: fixed;
+	padding: 1% 0 1% 1%;
+	border-right: 1px dashed #333;
+}
+.person .fixleft>div:nth-child(1){
+	height: 25%;
+	border-bottom: 1px dashed #999;
+}
+.person .fixleft>div:nth-child(1) h5{
+	height: 30%;
+    color: #000;
+    font-size: 18px;
+    padding: 10px 30px;
+    box-sizing: border-box;
+}
+.person .fixleft>div:nth-child(1) img{
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	float: left;
+}
+.person .fixleft>div:nth-child(1) h3{
+	float: left;
+	width: 200px;
+	padding: 10px;
+}	
+.person .fixleft>div:nth-child(1) h4{
+	float: left;
+	width: 200px;
+	padding: 10px;
+	color: #666;
+}
+.person .fixleft>div:nth-child(2){
+	border-bottom: 1px dashed #999;
+	height: 25%;
+}
+.person .fixleft>div:nth-child(2)>div{
+	height: 38px;
+	line-height: 38px;
+}
+.person .fixleft>div:nth-child(2)>div img{
+	width: 15px;
+}
+.person .fixleft>div:nth-child(2)>div span{
+	margin: 0 0 0 10px;
+}
+.person .fixleft>div:nth-child(2)>div em{
+	float: right;
+	margin: 0 10px 0 0;
+	font-style: normal;
+}
+.person .fixleft>div:nth-child(3){
+	border-bottom: 1px dashed #999;
+	height: 15%;
+}
+.person .fixleft>div:nth-child(3) h3{
+	padding: 10px 0;
+}
+.person .fixleft>div:nth-child(3) h4{
+	font-size: 13px;
+	padding: 10px 0;
+	color: #666;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+}
+.person .fixleft>div:nth-child(4){
+	border-bottom: 1px dashed #999;
+	height: 15%;
+	overflow: hidden;
+}
+.person .fixleft>div:nth-child(4) h3{
+	margin: 10px 0; 
+}
+.person .fixleft>div:nth-child(4) h4{
+	margin: 5px 0;
+	color: #666;
+	font-size: 15px;
+}
+.person .fixleft>div:nth-child(4) h5{
+	margin: 5px 0;
+	color: #666;
+	font-size: 15px;
+}
+.person .fixleft>div:nth-child(5){
+	height: 20%
+}
+.person .fixleft>div:nth-child(5) h3{
+	padding:  10px 0;
+}
+.person .fixleft>div:nth-child(5) p{
+	font-size: 13px;
+	color: #666;
+	overflow: hidden;
+	text-indent: 2em;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+.person .nofixright{
+	width: 75%;
+	left: 25%;
+	position: relative;
+}
+.person .nofixright .zptop{
+	width: 240px;
+	margin: 0 auto;
+	height: 60px;
+	line-height: 60px;
+	box-sizing: border-box;
+	text-align: center;
+	display: flex;
+	margin: 0 auto 20px;
+}
+.person .nofixright .zptop span{
+	display: block;
+	width: 60px;
+	/*border-bottom: 3px solid #666;*/
+	box-sizing: border-box;
+	text-align: center;
+	cursor: pointer;
+}
+.person .nofixright .zptop span:nth-child(4){
+	border-bottom: 3px solid #666;
+}
+.person .nofixright .personMsg{
+	width: 600px;
+	margin: 0 auto;
+}
+.person .nofixright .personMsg img{
+	display: block;
+	border-radius: 50px;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+	cursor: pointer;
+}
+.person .nofixright .personMsg>div{
+	display: flex;
+	align-items: center;
+}
+.person .nofixright .personMsg>div span{
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	text-align: right;
+	margin: 20px;
+
+}
+.person .nofixright .personMsg>div input{
+	height: 20px;
+}
+.person .nofixright .personMsg>div textarea{
+
+}
+.person .nofixright .personMsg>div h3{
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 5px;
+	background: red;
+	cursor: pointer;
+}
+/*个人中心 person end*/

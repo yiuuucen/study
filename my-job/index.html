@@ -18,15 +18,21 @@
 						<li></li>
 						<li><a href="">首页</a></li>
 						<li><a href="./design.html">作品集</a></li>
-						<li><a href="./my-design.html">我的设计</a></li>
+						<li><a href="./make-detail.html">我的设计</a></li>
 						<li><a href="">关于我</a></li>
 					</ul>
 				</div>
 				<div class="head-right">
-					<ol>
+					<!-- <ol>
 						<li><a href="./login.html">登录</a></li>
 						<li><a href="./register.html">注册</a></li>
-					</ol>
+					</ol> -->
+					<img src="cenu_img/tou.jpg" alt="">
+					<span>Cheng hu</span>
+					<div class="head-cont">
+						<a href="./person.html">个人中心</a>
+						<a href="">退出</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -63,11 +69,32 @@
 		</div>
 	</div>
 	<script>
+
+		var timer1;
 		// 每次加载首页，首页的颜色都会随机生成
 		$(".header .head-left ul li:nth-child(2)>a").css("color",getRandomColor);
 		// 获取屏幕高度-head-foot
 		var h= $(window).height();
 		$(".content").height(h-70);
+
+		$(".head-right img").mouseover(function(){
+			$(".head-right .head-cont").css("display","block");
+		})
+		$(".head-right .head-cont").mouseover(function(){
+			clearInterval(timer1);
+		})
+		$(".head-right img").mouseout(function(){
+			clearInterval(timer1);
+			timer1=setInterval(function(){
+			$(".head-right .head-cont").css("display","none");
+			},2000)
+		})
+		$(".head-right .head-cont").mouseout(function(){
+			clearInterval(timer1);
+			timer1=setInterval(function(){
+			$(".head-right .head-cont").css("display","none");
+			},2000)
+		})
 		//banner图效果
 		function change_banner(num){
 		    //获取当前显示图片的索引；

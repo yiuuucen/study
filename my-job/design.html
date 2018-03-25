@@ -19,7 +19,7 @@
 						<li></li>
 						<li><a href="./index.html">首页</a></li>
 						<li><a href="">作品集</a></li>
-						<li><a href="./my-design.html">我的设计</a></li>
+						<li><a href="./make-detail.html">我的设计</a></li>
 						<li><a href="">关于我</a></li>
 					</ul>
 				</div>
@@ -28,6 +28,12 @@
 						<li><a href="./login.html">登录</a></li>
 						<li><a href="./register.html">注册</a></li>
 					</ol>
+					<!-- <img src="cenu_img/tou.jpg" alt="">
+					<span>Cheng hu</span>
+					<div class="head-cont">
+						<a href="./person.html">个人中心</a>
+						<a href="">退出</a>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -42,13 +48,13 @@
 				</div>
 				<div class="zuopin">
 					<div class="zp">
-						<a href=""></a>
+						<a href="./detail.html" target="_blank"></a>
 						<img src="cenu_img/design-img/zp01.png" alt="">
 						<!-- <p>设计出心型的烟花，当它在天上绽放的时候，会有很好的视觉效果，可用于情侣之间。</p> -->
 						<!-- h3表示作品名 -->
 						<h3>heart-心-heart</h3>
 						<!-- span表示作者名 -->
-						<span><b style="color: #00fff6;">By</b> Cheng hu</span>
+						<span class="gerenMsg"><b style="color: #00fff6;">By</b> Cheng hu</span>
 						<!-- h5表示作品时间 -->
 						<h5>2018-03-24</h5>
 						<div class="zp-bottom">
@@ -59,13 +65,13 @@
 						</div>
 					</div>
 					<div class="zp">
-						<a href=""></a>
+						<a href="./detail.html" target="_blank"></a>
 						<img src="cenu_img/design-img/zp01.png" alt="">
 						<!-- <p>设计出心型的烟花，当它在天上绽放的时候，会有很好的视觉效果，可用于情侣之间。</p> -->
 						<!-- h3表示作品名 -->
 						<h3>heart-心-heart</h3>
 						<!-- span表示作者名 -->
-						<span><b style="color: #00fff6;">By</b> Cheng hu</span>
+						<span class="gerenMsg"><b style="color: #00fff6;">By</b> Cheng hu</span>
 						<!-- h5表示作品时间 -->
 						<h5>2018-03-24</h5>
 						<div class="zp-bottom">
@@ -76,13 +82,13 @@
 						</div>
 					</div>
 					<div class="zp">
-						<a href=""></a>
+						<a href="./detail.html" target="_blank"></a>
 						<img src="cenu_img/design-img/zp01.png" alt="">
 						<!-- <p>设计出心型的烟花，当它在天上绽放的时候，会有很好的视觉效果，可用于情侣之间。</p> -->
 						<!-- h3表示作品名 -->
 						<h3>heart-心-heart</h3>
 						<!-- span表示作者名 -->
-						<span><b style="color: #00fff6;">By</b> Cheng hu</span>
+						<span class="gerenMsg"><b style="color: #00fff6;">By</b> Cheng hu</span>
 						<!-- h5表示作品时间 -->
 						<h5>2018-03-24</h5>
 						<div class="zp-bottom">
@@ -93,13 +99,13 @@
 						</div>
 					</div>
 					<div class="zp">
-						<a href=""></a>
+						<a href="./detail.html" target="_blank"></a>
 						<img src="cenu_img/design-img/zp01.png" alt="">
 						<!-- <p>设计出心型的烟花，当它在天上绽放的时候，会有很好的视觉效果，可用于情侣之间。</p> -->
 						<!-- h3表示作品名 -->
 						<h3>heart-心-heart</h3>
 						<!-- span表示作者名 -->
-						<span><b style="color: #00fff6;">By</b> Cheng hu</span>
+						<span class="gerenMsg"><b style="color: #00fff6;">By</b> Cheng hu</span>
 						<!-- h5表示作品时间 -->
 						<h5>2018-03-24</h5>
 						<div class="zp-bottom">
@@ -110,13 +116,13 @@
 						</div>
 					</div>
 					<div class="zp">
-						<a href=""></a>
+						<a href="./detail.html" target="_blank"></a>
 						<img src="cenu_img/design-img/zp01.png" alt="">
 						<!-- <p>设计出心型的烟花，当它在天上绽放的时候，会有很好的视觉效果，可用于情侣之间。</p> -->
 						<!-- h3表示作品名 -->
 						<h3>heart-心-heart</h3>
 						<!-- span表示作者名 -->
-						<span><b style="color: #00fff6;">By</b> Cheng hu</span>
+						<span class="gerenMsg"><b style="color: #00fff6;">By</b> Cheng hu</span>
 						<!-- h5表示作品时间 -->
 						<h5>2018-03-24</h5>
 						<div class="zp-bottom">
@@ -136,6 +142,31 @@
 		$(".header .head-left ul li:nth-child(3)>a").css("color",getRandomColor);
 
 		$(".design .content .zuopin .zp").css("border-color",getRandomColor);
+
+
+		$(".head-right img").mouseover(function(){
+			$(".head-right .head-cont").css("display","block");
+		})
+		$(".head-right .head-cont").mouseover(function(){
+			clearInterval(timer1);
+		})
+		$(".head-right img").mouseout(function(){
+			clearInterval(timer1);
+			timer1=setInterval(function(){
+			$(".head-right .head-cont").css("display","none");
+			},2000)
+		})
+		$(".head-right .head-cont").mouseout(function(){
+			clearInterval(timer1);
+			timer1=setInterval(function(){
+			$(".head-right .head-cont").css("display","none");
+			},2000)
+		})
+		
+		$(".gerenMsg").click(function(){
+			window.location.href = "./my-design.html";
+			// alert(1);
+		})
 		// 分页的配置
 		$('.M-box').pagination({
 			pageCount:56,
