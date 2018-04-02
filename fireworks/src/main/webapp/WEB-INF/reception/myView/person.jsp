@@ -54,10 +54,10 @@
 		</div>
 		<div class="nofixright">
 			<div class="zptop">
-				<span>首页</span>
-				<span>项目</span>
-				<span>设计</span>
-				<span>个人</span>
+				<span><a href="/fireworks/index.jsp">首页</a></span>
+				<span><a href="/fireworks/toUser?id=${sessionScope.loginUser.id}">项目</a></span>
+				<span><a href="/fireworks/my/make-detail">设计</a></span>
+				<span><a href="/fireworks/my/person">个人</a></span>
 			</div>
 			<div class="personMsg">
 				<img src="/fireworks/static/cenu_img/my-design-img/tou.jpg" alt="">
@@ -98,17 +98,7 @@
 	</div>
 	<script>
 		
-		$(".zptop span").click(function(){
-			if($(this).html()=="首页"){
-				window.location.href = "/fireworks/index.jsp";
-			}else if($(this).html()=="项目"){
-				window.location.href = "/fireworks/my/my-design";
-			}else if($(this).html()=="设计"){
-				window.location.href = "/fireworks/my/make-detail";
-			}else if($(this).html()=="个人"){
-				window.location.href = "/fireworks/my/person";
-			}
-		})
+
 		function tiJaio(id){
 			var name;
 			var profession;

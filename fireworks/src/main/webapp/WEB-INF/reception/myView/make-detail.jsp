@@ -90,17 +90,16 @@
 		</div>
 		<div class="nofixright">
 			<div class="zptop">
-				<span>首页</span>
-				<span>项目</span>
-				<span>设计</span>
-				<span>个人</span>
+				<span><a href="/fireworks/index.jsp">首页</a></span>
+				<span><a href="/fireworks/toUser?id=${sessionScope.loginUser.id}">项目</a></span>
+				<span><a href="/fireworks/my/make-detail">设计</a></span>
+				<span><a href="/fireworks/my/person">个人</a></span>
 			</div>
 			<div class="zpdetail">
-				 <form enctype="multipart/form-data" method="post"  action="/fireworks/addProduction"> 
+				 <form action="/fireworks/production/addProduction" enctype="multipart/form-data" method="post" > 
 					<div>
 						<span>作品名:</span>
-						<input type="text" placeholder="你的作品名"
-						name="pro_name">
+						<input type="text" placeholder="你的作品名" name="pro_name">
 					</div>
 					<div>
 						<span>作品(上传一张你设计好的图):</span>
@@ -150,17 +149,7 @@
 		// 应该左边有固定宽度，鼠标起始位置就应该减去这段宽度
 		var mouseadd=$(window).width()*0.25;
 
-		$(".zptop span").click(function(){
-			if($(this).html()=="首页"){
-				window.location.href = "/fireworks/index.jsp";
-			}else if($(this).html()=="项目"){
-				window.location.href = "/fireworks/my/my-design";
-			}else if($(this).html()=="设计"){
-				window.location.href = "/fireworks/my/make-detail";
-			}else if($(this).html()=="个人"){
-				window.location.href = "/fireworks/my/person";
-			}
-		})
+		
 		
 		
 		$(function(){

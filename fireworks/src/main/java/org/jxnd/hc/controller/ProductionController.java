@@ -63,9 +63,9 @@ public class ProductionController {
 	 * @return 
 	 */
 	@RequestMapping("/addProduction")
-	@ResponseBody
+	
 	public String addProduction(@RequestParam("filename")MultipartFile file,String pro_name,String pro_tail,HttpSession session){
-		System.out.println("进入方法");
+		
 		//取得带路径文件名
 		String fileName=file.getOriginalFilename();
 		//生成新文件名
@@ -73,6 +73,9 @@ public class ProductionController {
 		//图片保存路径
 		String filePath=RandomUtil.theUrl+"/production/"+newName;
 		File newFile=new File(filePath);
+		if(!newFile.getParentFile().exists()){
+			newFile.getParentFile().mkdirs();
+        }
 		try {
 			file.transferTo(newFile);
 		} catch (IllegalStateException | IOException e) {
@@ -83,10 +86,12 @@ public class ProductionController {
 		Timestamp createTime=new Timestamp(new Date().getTime());
 		User loginUser=(User) session.getAttribute("loginUser");
 		int i=iProductionService.addProduction(0, savePath, pro_name, createTime, 0, 0, loginUser.getId(), 1, pro_tail);
-		if(i>0)
-			return "1";
-		else
-			return "2";
+		if(i>0){
+			session.setAttribute("spaceUser", loginUser);
+			return "reception/myView/my-design";
+		}else{
+			return "reception/myView/make-detail";
+		}
 	}
 	
 	/**
@@ -155,6 +160,21 @@ public class ProductionController {
 		Production production=iProductionService.findProduction(id);
 		req.setAttribute("thePro", production);
 		return "";
+	}
+	
+	/**
+	 * 取得作品数量
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/getProCount")
+	@ResponseBody
+	public int getProCount(HttpSession session){
+		User spaceUser=(User) session.getAttribute("spaceUser");
+		if(spaceUser != null){
+			return iProductionService.getProductionCount(spaceUser.getId());
+		}else
+			return iProductionService.getProductionCount(0);
 	}
 	
 }

@@ -776,15 +776,16 @@ html,body{
 	display: flex;
 	margin: 0 auto;
 }
-.my-design .nofixright .zptop span{
+.my-design .nofixright .zptop span a{
 	display: block;
 	width: 60px;
 	/*border-bottom: 3px solid #666;*/
 	box-sizing: border-box;
 	text-align: center;
 	cursor: pointer;
+	color:#000;
 }
-.my-design .nofixright .zptop span:nth-child(2){
+.my-design .nofixright .zptop span:nth-child(2) a{
 	border-bottom: 3px solid #666;
 }
 .my-design .nofixright .zpbottom .zuopin{
@@ -1133,15 +1134,16 @@ html,body{
 	display: flex;
 	margin: 0 auto 20px;
 }
-.make-detail .nofixright .zptop span{
+.make-detail .nofixright .zptop span a{
 	display: block;
 	width: 60px;
 	/*border-bottom: 3px solid #666;*/
 	box-sizing: border-box;
 	text-align: center;
 	cursor: pointer;
+	color:#000;
 }
-.make-detail .nofixright .zptop span:nth-child(3){
+.make-detail .nofixright .zptop span:nth-child(3) a{
 	border-bottom: 3px solid #666;
 }
 .make-detail .nofixright .zpdetail{
@@ -1324,15 +1326,16 @@ html,body{
 	display: flex;
 	margin: 0 auto 20px;
 }
-.person .nofixright .zptop span{
+.person .nofixright .zptop span a{
 	display: block;
 	width: 60px;
 	/*border-bottom: 3px solid #666;*/
 	box-sizing: border-box;
 	text-align: center;
 	cursor: pointer;
+	color:#000;
 }
-.person .nofixright .zptop span:nth-child(4){
+.person .nofixright .zptop span:nth-child(4) a{
 	border-bottom: 3px solid #666;
 }
 .person .nofixright .personMsg{
