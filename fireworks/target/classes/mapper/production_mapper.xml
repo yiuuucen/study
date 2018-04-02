@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jxnd.hc.dao.ProductionMapper">
+	<resultMap type="org.jxnd.hc.bean.Production" id="baseResult">
+		<id column="id" jdbcType="INTEGER" property="id"/>
+		<result column="imgurl" jdbcType="VARCHAR" property="imgurl"/>
+		<result column="pro_name" jdbcType="VARCHAR" property="pro_name"/>
+		<result column="createTime" jdbcType="DATE" property="createTime"/>
+		<result column="like_num" jdbcType="INTEGER" property="like_num"/>
+		<result column="view_num" jdbcType="INTEGER" property="view_num"/>
+		<result column="user_id" jdbcType="INTEGER" property="user_id"/>
+		<result column="deleteState" jdbcType="INTEGER" property="deleteState"/>
+		<result column="pro_tail" jdbcType="VARCHAR" property="pro_tail"/>
+		<association property="user" javaType="org.jxnd.hc.bean.User">
+			<id column="id" jdbcType="INTEGER" property="id"/>
+			<result column="account" jdbcType="VARCHAR" property="account"/>
+			<result column="pwd" jdbcType="VARCHAR" property="pwd"/>
+			<result column="headUrl" jdbcType="VARCHAR" property="headUrl"/>
+			<result column="phone" jdbcType="VARCHAR" property="phone"/>
+			<result column="userInfo_id" jdbcType="VARCHAR" property="userInfo_id"/>
+		</association>
+	</resultMap>
+	
+	<sql id="BaseSql">
+		p.id,p.imgurl,p.pro_name,p.createTime,p.like_num,p.view_num,p.user_id,p.deleteState,p.pro_tail,
+		u.id,u.account,u.pwd,u.headUrl,u.phone,u.userInfo_id
+	</sql>
+	
+	<!-- 查询所有作品 -->
+	<select id="findAllProduction" resultMap="baseResult">
+		select <include refid="BaseSql"></include> from production p,user u where p.user_id=u.id
+		<if test="user_id != 0">
+			and p.user_id=#{user_id}
+		</if>
+		<if test="deleteState != 0">
+			and p.deleteState=#{deleteState}
+		</if>
+		order by 
+		<if test="byThis != null">
+			${byThis}
+		</if>
+		desc
+		<if test="start != 0 or pageSize != 0">
+			limit #{start},#{pageSize}
+		</if>
+	</select>
+	
+	<!-- 取得作品 -->
+	<select id="findProduction" resultMap="baseResult">
+		select <include refid="BaseSql"></include> from production p,user u where p.user_id=u.id
+			<if test="id != 0">
+				and p.id=#{id}
+			</if>
+	</select>
+	
+	<!-- 查询作品数量 -->
+	<select id="getProductionCount" resultType="int">
+		select count(*) from production
+		<where>
+			<if test="user_id != 0">
+				and user_id=#{user_id}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 添加作品 -->
+	<insert id="addProduction" parameterType="org.jxnd.hc.bean.Production" useGeneratedKeys="true" keyProperty="id">
+		insert into production values(#{id},#{imgurl},#{pro_name},#{createTime},#{like_num},#{view_num},#{user_id},#{deleteState},#{pro_tail})
+	</insert>
+	
+	<!-- 更新作品 -->
+	<update id="updateProduction" parameterType="org.jxnd.hc.bean.Production">
+		update production 
+		<set>
+		<if test="imgurl != null">
+				imgurl=#{imgurl},
+			</if>
+			<if test="pro_name != null">
+				pro_name=#{pro_name},
+			</if>
+			<if test="like_num != 0">
+				like_num=#{like_num},
+			</if>
+			<if test="view_num != 0">
+				view_num=#{view_num},
+			</if>
+			<if test="deleteState != 0">
+				deleteState=#{deleteState},
+			</if>
+			<if test="pro_tail != null">
+				pro_tail=#{pro_tail},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	
+</mapper>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>个人中心</title>
+	<link rel="shortcut icon" href="hh.ico">
+	<link rel="stylesheet" href="cenu_css/reset.css">
+	<link rel="stylesheet" href="cenu_css/style.css">
+	<script src="cenu_js/jquery-3.2.1.min.js"></script>
+	<script src="cenu_js/index.js"></script>
+	<script src="cenu_js/lib/jquery.pagination.js"></script>
+</head>
+<body> 
+	<div class="person">
+		<div class="fixleft">
+			<div>
+				<!-- h5表示姓名 -->
+				<h5>胡成</h5>
+				<img src="cenu_img/my-design-img/tou.jpg" alt="">
+				<!-- h3表示职业 -->
+				<h3>学生</h3>
+				<!-- h4表示目前居住地 -->
+				<h4>北京 昌平</h4>
+			</div>
+			<div>
+				<div>
+					<img src="cenu_img/design-img/see.png" alt=""><span>项目人气</span></img><em>9247</em>
+				</div>
+				<div>
+					<img src="cenu_img/design-img/zan01.png" alt=""><span>得赞数</span></img><em>666</em>
+				</div>
+				<div>
+					<img src="cenu_img/design-img/zan02.png" alt=""><span>作品数</span></img><em>123</em>
+				</div>
+				<div>
+					<img src="cenu_img/design-img/zan02.png" alt=""><span>----</span></img><em>---</em>
+				</div>
+			</div>
+			<div>
+				<h3>擅长爱好</h3>
+				<h4>运动，看书，听音乐</h4>
+			</div>
+			<div>
+				<h3>联系方式</h3>
+				<h4>QQ:<span>1784373887</span></h4>
+				<h5>TEL:<span>15510507940</span></h5>
+			</div>
+			<div>
+				<h3>介绍自己</h3>
+				<p>这个人很LAN什么都没留下~~</p>
+			</div>
+		</div>
+		<div class="nofixright">
+			<div class="zptop">
+				<span>首页</span>
+				<span>项目</span>
+				<span>设计</span>
+				<span>个人</span>
+			</div>
+			<div class="personMsg">
+				<img src="cenu_img/my-design-img/tou.jpg" alt="">
+				<div>
+					<span>姓名:</span>
+					<input type="text">
+				</div>
+				<div>
+					<span>职业:</span>
+					<input type="text">
+				</div>
+				<div>
+					<span>居住地:</span>
+					<input type="text">
+				</div>
+				<div>
+					<span>擅长爱好:</span>
+					<input type="text">
+				</div>
+				<div>
+					<span>TEL:</span>
+					<input type="text">
+				</div>
+				<div>
+					<span>QQ:</span>
+					<input type="text">
+				</div>
+				<div>
+					<span>介绍自己:</span>
+					<textarea name="" id="" cols="30" rows="10"></textarea>
+				</div>
+				<div>
+					<span></span>
+					<h3>提交</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		
+		$(".zptop span").click(function(){
+			if($(this).html()=="首页"){
+				window.location.href = "./index.html";
+			}else if($(this).html()=="项目"){
+				window.location.href = "./my-design.html";
+			}else if($(this).html()=="设计"){
+				window.location.href = "./make-detail.html";
+			}else if($(this).html()=="个人"){
+				window.location.href = "./person.html";
+			}
+		})
+
+
+
+
+	</script>
+</body>
+</html>
