@@ -1,0 +1,43 @@
+.register-message {
+    font-size: 25px;
+}
+.info {
+    padding-right: 10px;
+    padding-left: 90px;
+    margin-top: 10px;
+}
+.info-position {
+    float:right;
+    font-size:20px;
+}
+.box-position {
+    margin-top:2%;
+    width:500px;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 20px;
+    border-top: 0;
+}
+.system-logo {
+  font-size: 35px;
+  text-align: left;
+  margin-bottom: 25px;
+  font-weight: 300;
+}
+.button-position {
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.button-width {
+    width: 250px;
+}
+.code {  
+    font-family: Arial;  
+    font-style: italic;  
+    font-weight: bold;  
+    padding-top:6px;
+    border: 0;  
+    letter-spacing: 3px;  
+    color: blue;  
+}  

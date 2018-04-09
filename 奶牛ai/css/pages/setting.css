@@ -1,0 +1,9 @@
+
+.form-control {
+    position: relative;;
+}
+.redsign {
+    color:red;
+    position: absolute;
+    top: 700%;
+}

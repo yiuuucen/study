@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>账户设置</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="js/plugins/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="js/plugins/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="js/plugins/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="css/AdminLTE.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="js/plugins/iCheck/square/blue.css">
+  <link rel="stylesheet" href="css/pages/setting.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="js/plugins/GoogleFont/GoogleFont.css">
+</head>
+<body class="hold-transition">
+        <div>
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+            <h1>
+                账户设置
+            </h1>
+            </section>
+        
+            <!-- Main content -->
+            <section class="content container-fluid">
+                
+                <div class="box box-gray">
+                    <div class="box-header with-border">
+                    <h3 class="box-title">基本信息</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form class="form-horizontal">
+                    <div class="box-body">
+                        <div class="row">
+                        <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="inputUser" class="col-sm-3 control-label">用户名</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="inputUser" >
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="redsign">*</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-3 control-label">姓名</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="inputName" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" class="col-sm-3 control-label">性别</label>
+                            <div class="col-sm-8">
+                                <label class="radio-inline">
+                                    <input type="radio" value="option1" name="sex">男性
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" value="option2" name="sex">女性
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputID" class="col-sm-3 control-label">身份证号</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputID" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPhone" class="col-sm-3 control-label">手机</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="inputPhone" >
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="redsign">*</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-sm-3 control-label">邮箱</label>
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control" id="inputEmail" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputTel" class="col-sm-3 control-label">固定电话</label>
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control" id="inputTel" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="selectCountry" class="col-sm-3 control-label">国家</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="selectcountry">
+                                    <option value="china">中国</option>
+                                    <option value="other">海外</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="province" class="col-sm-3 control-label">省份</label>
+                            <div class="col-sm-8">
+                                <select id="province" runat="server" onchange="selectprovince(this);" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="city" class="col-sm-3 control-label">城市</label>
+                            <div class="col-sm-8">
+                                <select id="city" runat="server" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputcode" class="col-sm-3 control-label">邮编</label>
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control" id="inputcode" >
+                            </div>
+                        </div>
+                        </div>
+                    <div class="col-sm-6">
+                            <img class="profile-user-img img-responsive img-circle" src="images/user.jpg" alt="User profile picture">
+        
+                            <h3 class="profile-username text-center">Nina Mcintire</h3>
+            
+                            <p class="text-muted text-center">Software Engineer</p>
+        
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <button type="button" class="btn btn-primary btn-block">点击修改头像</button>
+                            </div>
+                    </div>
+                </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-header with-border">
+                        <h3 class="box-title"> 安全信息</h3>
+                    </div>
+                        <div class="box-body">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="password" class="col-sm-3 control-label">密码</label>
+                                    <div class="col-sm-8">
+                                        <input type="password" class="form-control" id="password" >         
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <span class="redsign">*</span>
+                                    </div>  
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label for="question" class="col-sm-3 control-label">密码提示问题</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="question" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="answer" class="col-sm-3 control-label">密码提示答案</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="answer" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6"><button type="button" class="btn btn-primary">重置</button></div>
+                    </div>
+                    <div class="box-header with-border">
+                        <h3 class="box-title"> 其他信息</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="info" class="col-sm-3 control-label">备注信息</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="info" rows="3"></textarea>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-default">取消</button>
+                        <button type="submit" class="btn btn-info pull-right">保存</button>
+                    </div>
+                    <!-- /.box-footer -->
+                    </form>
+                </div>
+        
+            </section>
+            <!-- /.content -->
+        </div>
+<!-- jQuery 3 -->
+<script src="js/plugins/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="js/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- iCheck -->
+<script src="js/plugins/iCheck/icheck.min.js"></script>
+<script src="js/pages/city.js"></script>
+</body>
+</html>
