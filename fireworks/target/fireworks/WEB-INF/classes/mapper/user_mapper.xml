@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jxnd.hc.dao.UserMapper">
+	<resultMap type="org.jxnd.hc.bean.User" id="baseResult">
+		<id column="id" jdbcType="INTEGER" property="id"/>
+		<result column="account" jdbcType="VARCHAR" property="account"/>
+		<result column="pwd" jdbcType="VARCHAR" property="pwd"/>
+		<result column="headUrl" jdbcType="VARCHAR" property="headUrl"/>
+		<result column="phone" jdbcType="VARCHAR" property="phone"/>
+		<result column="userInfo_id" jdbcType="INTEGER" property="userInfo_id"/>
+		<result column="createTime" jdbcType="DATE" property="createTime"/>
+		<result column="deleteState" jdbcType="DATE" property="deleteState"/>
+		<result column="isAdmin" jdbcType="INTEGER" property="isAdmin"/>
+		<association property="userInfo" javaType="org.jxnd.hc.bean.UserInfo">
+			<id column="id" jdbcType="VARCHAR" property="id"/>
+			<result column="profession" jdbcType="VARCHAR" property="profession"/>
+			<result column="address" jdbcType="VARCHAR" property="address"/>
+			<result column="worksPop" jdbcType="INTEGER" property="worksPop"/>
+			<result column="thumpWork" jdbcType="INTEGER" property="thumpWork"/>
+			<result column="hobby" jdbcType="VARCHAR" property="hobby"/>
+			<result column="qq" jdbcType="VARCHAR" property="qq"/>
+			<result column="idiograph" jdbcType="VARCHAR" property="idiograph"/>
+			<result column="pro_num" jdbcType="INTEGER" property="pro_num"/>
+		</association>
+	</resultMap>
+	
+	<sql id="BaseSql">
+		u.id,u.account,u.pwd,u.headUrl,u.phone,u.userInfo_id,u.createTime,u.deleteState,u.isAdmin,
+		ui.id,ui.profession,ui.address,ui.worksPop,ui.thumpWork,ui.hobby,ui.qq,ui.idiograph,ui.pro_num
+	</sql>
+	
+	<!-- 查询所有用户 -->
+	<select id="findAllUser" resultMap="baseResult">
+		select <include refid="BaseSql"></include> from user u,userInfo ui where u.userInfo_id=ui.id
+		order by u.id desc
+		<if test="start != 0 or pageSize != 0">
+			limit #{start},#{pageSize}
+		</if>
+	</select>
+	
+	<!-- 取得用户 -->
+	<select id="findUser" resultMap="baseResult">
+		select <include refid="BaseSql"></include> from user u,userInfo ui where u.userInfo_id=ui.id
+			<if test="id != 0">
+				and u.id=#{id}
+			</if>
+			<if test="account != null">
+				and u.account=#{account}
+			</if>
+			<if test="pwd != null">
+				and u.pwd=#{pwd}
+			</if>
+	</select>
+	
+	<select id="getUserCount" resultType="int">
+		select count(*) from user
+	</select>
+	
+	<!-- 添加用户 -->
+	<insert id="addUser" parameterType="org.jxnd.hc.bean.User" useGeneratedKeys="true" keyProperty="id">
+		insert into user values(#{id},#{account},#{pwd},#{headUrl},#{phone},#{userInfo_id},#{createTime},#{deleteState},#{isAdmin})
+	</insert>
+	
+	<!-- 更新用户 -->
+	<update id="updateUser" parameterType="org.jxnd.hc.bean.User">
+		update user 
+		<set>
+		<if test="account != null">
+				account=#{account},
+			</if>
+			<if test="pwd != null">
+				pwd=#{pwd},
+			</if>
+			<if test="headUrl != null">
+				headUrl=#{headUrl},
+			</if>
+			<if test="phone != null">
+				phone=#{phone},
+			</if>
+			<if test="deleteState != 0">
+				deleteState=#{deleteState},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	
+</mapper>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -52,13 +53,24 @@
 				<p>${sessionScope.loginUser.userInfo.idiograph}</p>
 			</div>
 		</div>
+		<div id="${sessionScope.loginUser.id}" class="${sessionScope.spaceUser.id}"></div>
 		<div class="nofixright">
-			<div class="zptop">
-				<span><a href="/fireworks/index.jsp">首页</a></span>
-				<span><a href="/fireworks/toUser?id=${sessionScope.loginUser.id}">项目</a></span>
-				<span><a href="/fireworks/my/make-detail">设计</a></span>
-				<span><a href="/fireworks/my/person">个人</a></span>
-			</div>
+			<c:choose>
+				<c:when test="${sessionScope.loginUser.id == sessionScope.spaceUser.id}">
+					<div class="zptop">
+						<span><a href="/fireworks/index.jsp">首页</a></span>
+						<span><a href="/fireworks/toUser?id=${sessionScope.loginUser.id}">项目</a></span>
+						<span><a href="/fireworks/my/make-detail">设计</a></span>
+						<span><a href="/fireworks/my/person">个人</a></span>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="zptop">
+						<span><a href="/fireworks/index.jsp">首页</a></span>
+						<span><a href="/fireworks/toUser?id=${sessionScope.spaceUser.id}">项目</a></span>
+					</div>
+				</c:otherwise>
+			</c:choose>
 			<div class="personMsg">
 				<img src="/fireworks/static/cenu_img/my-design-img/tou.jpg" alt="">
 				<div>

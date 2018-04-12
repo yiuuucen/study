@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -89,32 +90,72 @@
 			</div>
 		</div>
 		<div class="nofixright">
-			<div class="zptop">
-				<span><a href="/fireworks/index.jsp">首页</a></span>
-				<span><a href="/fireworks/toUser?id=${sessionScope.loginUser.id}">项目</a></span>
-				<span><a href="/fireworks/my/make-detail">设计</a></span>
-				<span><a href="/fireworks/my/person">个人</a></span>
-			</div>
-			<div class="zpdetail">
-				 <form action="/fireworks/production/addProduction" enctype="multipart/form-data" method="post" > 
-					<div>
-						<span>作品名:</span>
-						<input type="text" placeholder="你的作品名" name="pro_name">
+			<c:choose>
+				<c:when test="${sessionScope.loginUser.id == sessionScope.spaceUser.id}">
+					<div class="zptop">
+						<span><a href="/fireworks/index.jsp">首页</a></span>
+						<span><a href="/fireworks/toUser?id=${sessionScope.loginUser.id}">项目</a></span>
+						<span><a href="/fireworks/my/make-detail">设计</a></span>
+						<span><a href="/fireworks/my/person">个人</a></span>
 					</div>
-					<div>
-						<span>作品(上传一张你设计好的图):</span>
-						<input type="file" name="filename">
+				</c:when>
+				<c:otherwise>
+					<div class="zptop">
+						<span><a href="/fireworks/index.jsp">首页</a></span>
+						<span><a href="/fireworks/toUser?id=${sessionScope.spaceUser.id}">项目</a></span>
 					</div>
-					<div>
-						<span>作品介绍:</span>
-						<textarea name="pro_tail" id="zpIntr" cols="30" rows="10"></textarea>
+				</c:otherwise>
+			</c:choose>
+
+			<c:choose>
+				
+				<c:when test="${requestScope.thePro != null}">
+					<div class="zpdetail">
+						<form action="/fireworks/production/updateProduction" enctype="multipart/form-data" method="post" >
+							<div>
+								<span>作品名:</span>
+								<input type="text" placeholder="你的作品名" name="pro_name" value="${requestScope.thePro.pro_name}">
+							</div>
+							<div>
+								<span>作品(上传一张你设计好的图):</span>
+								<input type="file" name="filename" >
+							</div>
+							<div>
+								<span>作品介绍:</span>
+								<textarea name="pro_tail" id="zpIntr" cols="30" rows="10">${requestScope.thePro.pro_tail}</textarea>
+							</div>
+							<div>
+								<span></span>
+								<input  type="submit" value="保存">
+							</div>
+						</form>
 					</div>
-					<div>
-						<span></span>
-						<input  type="submit" value="保存">
+				</c:when>
+				
+				<c:otherwise>
+					<div class="zpdetail">
+						<form action="/fireworks/production/addProduction" enctype="multipart/form-data" method="post" >
+							<div>
+								<span>作品名:</span>
+								<input type="text" placeholder="你的作品名" name="pro_name">
+							</div>
+							<div>
+								<span>作品(上传一张你设计好的图):</span>
+								<input type="file" name="filename">
+							</div>
+							<div>
+								<span>作品介绍:</span>
+								<textarea name="pro_tail" id="zpIntr" cols="30" rows="10"></textarea>
+							</div>
+							<div>
+								<span></span>
+								<input  type="submit" value="保存">
+							</div>
+						</form>
 					</div>
-				</form> 
-			</div>
+				</c:otherwise>
+
+			</c:choose>
 			<h3>你也可以用下面的画图工具绘出你喜欢的烟花样式</h3>
 			<canvas id="cavs" width="600" height="342" style=""></canvas>
 			<br>

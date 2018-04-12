@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jxnd.hc.dao.UserInfoMapper">
+	<resultMap type="org.jxnd.hc.bean.UserInfo" id="baseResult">
+		<id column="id" jdbcType="VARCHAR" property="id"/>
+		<result column="profession" jdbcType="VARCHAR" property="profession"/>
+		<result column="address" jdbcType="VARCHAR" property="address"/>
+		<result column="worksPop" jdbcType="INTEGER" property="worksPop"/>
+		<result column="thumpWork" jdbcType="INTEGER" property="thumpWork"/>
+		<result column="hobby" jdbcType="VARCHAR" property="hobby"/>
+		<result column="qq" jdbcType="VARCHAR" property="qq"/>
+		<result column="idiograph" jdbcType="VARCHAR" property="idiograph"/>
+		<result column="pro_num" jdbcType="INTEGER" property="pro_num"/>
+	</resultMap>
+	
+	<sql id="BaseSql">
+		 id,profession,address,worksPop,thumpWork,hobby,qq,idiograph,pro_num
+	</sql>
+	
+	<!-- 查询所有用户 信息-->
+	<select id="findAllUserInfo" resultMap="baseResult">
+		select <include refid="BaseSql"></include> from userinfo 
+		order by id desc
+		<if test="start != 0 or pageSize != 0">
+			limit #{start},#{pageSize}
+		</if>
+	</select>
+	
+	<!-- 取得用户信息 -->
+	<select id="findUserInfo" resultMap="baseResult">
+		select <include refid="BaseSql"></include> from userinfo
+			<where>
+				<if test="id != null">
+					and id=#{id}
+				</if>
+			</where>
+	</select>
+	
+	<select id="getUserInfoCount" resultType="int">
+		select count(*) from userinfo
+	</select>
+	
+	<!-- 添加用户信息 -->
+	<insert id="addUserInfo" parameterType="org.jxnd.hc.bean.UserInfo" >
+		insert into userinfo values(#{id},#{profession},#{address},#{worksPop},#{thumpWork},#{hobby},#{qq},#{idiograph},#{pro_num})
+	</insert>
+	
+	<!-- 更新用户信息 -->
+	<update id="updateUserInfo" parameterType="org.jxnd.hc.bean.UserInfo">
+		update userinfo 
+		<set>
+		<if test="profession != null">
+				profession=#{profession},
+			</if>
+			<if test="address != null">
+				address=#{address},
+			</if>
+			<if test="worksPop != 0">
+				worksPop=#{worksPop},
+			</if>
+			<if test="thumpWork != 0">
+				thumpWork=#{thumpWork},
+			</if>
+			<if test="hobby != null">
+				hobby=#{hobby},
+			</if>
+			<if test="qq != null">
+				qq=#{qq},
+			</if>
+			<if test="idiograph != null">
+				idiograph=#{idiograph},
+			</if>
+			<if test="pro_num != 0">
+				pro_num=#{pro_num},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	
+</mapper>

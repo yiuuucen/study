@@ -1,24 +1,26 @@
+<%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>作品详情</title>
-	<link rel="shortcut icon" href="hh.ico">
-	<link rel="stylesheet" href="cenu_css/reset.css">
-	<link rel="stylesheet" href="cenu_css/style.css">
-	<script src="cenu_js/jquery-3.2.1.min.js"></script>
-	<script src="cenu_js/index.js"></script>
-	<script src="cenu_js/lib/jquery.pagination.js"></script>
+	<link rel="shortcut icon" href="/fireworks/static/cenu_img/hh.ico">
+	<link rel="stylesheet" href="/fireworks/static/cenu_css/reset.css">
+	<link rel="stylesheet" href="/fireworks/static/cenu_css/style.css">
+	<script src="/fireworks/static/cenu_js/jquery-3.2.1.min.js"></script>
+	<script src="/fireworks/static/cenu_js/index.js"></script>
+	<script src="/fireworks/static/cenu_js/lib/jquery.pagination.js"></script>
 </head>
 <body> 
 	<div class="detail">
+
 		<div class="fixleft">
 			<div>
 				<!-- h5表示姓名 -->
 				<h5>胡成</h5>
-				<img src="cenu_img/my-design-img/tou.jpg" alt="">
+				<img src="/fireworks/static/cenu_img/my-design-img/tou.jpg" alt="">
 				<!-- h3表示职业 -->
 				<h3>学生</h3>
 				<!-- h4表示目前居住地 -->
@@ -26,16 +28,16 @@
 			</div>
 			<div>
 				<div>
-					<img src="cenu_img/design-img/see.png" alt=""><span>项目人气</span></img><em>9247</em>
+					<img src="/fireworks/static/cenu_img/design-img/see.png" alt=""><span>项目人气</span></img><em>9247</em>
 				</div>
 				<div>
-					<img src="cenu_img/design-img/zan01.png" alt=""><span>得赞数</span></img><em>666</em>
+					<img src="/fireworks/static/cenu_img/design-img/zan01.png" alt=""><span>得赞数</span></img><em>666</em>
 				</div>
 				<div>
-					<img src="cenu_img/design-img/zan02.png" alt=""><span>作品数</span></img><em>123</em>
+					<img src="/fireworks/static/cenu_img/design-img/zan02.png" alt=""><span>作品数</span></img><em>123</em>
 				</div>
 				<div>
-					<img src="cenu_img/design-img/zan02.png" alt=""><span>----</span></img><em>---</em>
+					<img src="/fireworks/static/cenu_img/design-img/zan02.png" alt=""><span>----</span></img><em>---</em>
 				</div>
 			</div>
 			<div>
@@ -61,7 +63,7 @@
 				</div>
 				<div>
 					<span>作品：</span>
-					<img src="cenu_img/design-img/zp01.png" alt="">
+					<img src="/fireworks/static/cenu_img/design-img/zp01.png" alt="">
 				</div>
 				<div>
 					<span>作品介绍:</span>

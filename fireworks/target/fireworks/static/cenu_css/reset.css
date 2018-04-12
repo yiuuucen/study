@@ -1,0 +1,17 @@
+body,ul,ol,h1,h2,h3,h4,h5,h6,p{
+	margin:0;
+}
+ul,ol{
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #fff;
+}
+/*去除点击input后的边框*/
+input{
+    outline:none;
+}

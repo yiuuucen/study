@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -21,27 +22,35 @@
 						<li></li>
 						<li><a href="/fireworks/index.jsp">首页</a></li>
 						<li><a href="">作品集</a></li>
-						<li><a href="/fireworks/my/make-detail">我的设计</a></li>
+						<c:choose>
+							<c:when test="${sessionScope.loginUser != null }">
+								<li><a href="/fireworks/toUser?id=${sessionScope.loginUser.id}">我的设计</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="/fireworks/login">我的设计</a></li>
+							</c:otherwise>
+						</c:choose>
+						
 						<li><a href="">关于我</a></li>
 					</ul>
 				</div>
 				<div class="head-right">
-					<c:choose>
-						<c:when test="${sessionScope.loginUser != null }">
-							<img src="${sessionScope.loginUser.headUrl}" alt="">
-							<span>${sessionScope.loginUser.account}</span>
-							<div class="head-cont">
-								<a href="/fireworks/my/person">个人中心</a>
-								<a href="">退出</a>
-							</div>
-						</c:when>
-						<c:otherwise>
-							<ol>
-								<li><a href="/fireworks/login">登录</a></li>
-								<li><a href="/fireworks/register">注册</a></li>
-							</ol>
-						</c:otherwise>
-					</c:choose>
+				<c:choose>
+					<c:when test="${sessionScope.loginUser != null }">
+						<img src="${sessionScope.loginUser.headUrl}" alt="">
+						<span>${sessionScope.loginUser.account}</span>
+						<div class="head-cont">
+							<a href="/fireworks/toMys/${sessionScope.loginUser.id}">个人中心</a>
+							<a href="">退出</a>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<ol>
+							<li><a href="/fireworks/login">登录</a></li>
+							<li><a href="/fireworks/register">注册</a></li>
+						</ol>
+					</c:otherwise>
+				</c:choose>
 				</div>
 			</div>
 		</div>
@@ -62,7 +71,7 @@
 						<!-- h3表示作品名 -->
 						<h3>heart-心-heart</h3>
 						<!-- span表示作者名 -->
-						<span class="gerenMsg"><b style="color: #00fff6;">By</b> Cheng hu</span>
+						<span class="gerenMsg"><b style="color: #00fff6;">By</b><a href="">Cheng hu</a></span>
 						<!-- h5表示作品时间 -->
 						<h5>2018-03-24</h5>
 						<div class="zp-bottom">
@@ -142,6 +151,38 @@
 		}, function (api) {
     		
 		}); 
+		
+		//将时间戳换成日期
+		function changeTime(time){
+			var date = new Date(time);
+			Y = date.getFullYear() + '-';
+			M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+			D = date.getDate()<10 ? '0'+date.getDate():date.getDate()+'';
+			h = date.getHours() + ':';
+			m = date.getMinutes() + ':';
+			s = date.getSeconds(); 
+			return Y+M+D+' '+h+m+s;
+			//console.log(Y+M+D+h+m+s);
+		}
+		
+		//作品生成
+		create(1,8,'p.createTime');
+		function create(pn,pageSize,byThis){
+			$.ajax({
+				type:"get",
+		        url:"/fireworks/production/findAllProduction",
+		        data:{"deleteState":1,"pn":pn,"pageSize":pageSize,"byThis":byThis},
+		        dataType:"json",
+		        success:function(data){
+		        	$(".zuopin").html('');
+	        		 for(var i=0;i<data.length;i++){
+	        			var html='<div class="zp"><a href="/fireworks/pn/detail" target="_blank"></a><img style="width: 245px;height: 164px;" src="'+data[i].imgurl+'" alt=""><h3>'+data[i].pro_name+'</h3><span><b style="color: #00fff6;">By</b><a style="position: relative;height: 30px;margin: 0 0 0 20px;color: #000;" href="/fireworks/toUser?id='+data[i].user_id+'"> '+data[i].user.account+'</a></span><h5>'+changeTime(data[i].createTime)+'</h5><div class="zp-bottom"><img src="/fireworks/static/cenu_img/design-img/zan01.png" alt=""><span>'+data[i].like_num+'</span><img src="/fireworks/static/cenu_img/design-img/see.png" alt=""><span>'+data[i].view_num+'</span></div><div class="zp-change"></div></div>';
+	        			$(".zuopin").append(html);
+	        		 } 
+		        }
+			})
+		}
+		console.log(1)
 	</script>
 </body>
 </html>

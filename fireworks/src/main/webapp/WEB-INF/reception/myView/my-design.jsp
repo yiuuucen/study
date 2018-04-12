@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -53,12 +54,22 @@
 			</div>
 		</div>
 		<div class="nofixright">
-			<div class="zptop">
-				<span><a href="/fireworks/index.jsp">首页</a></span>
-				<span><a href="/fireworks/toUser?id=${sessionScope.loginUser.id}">项目</a></span>
-				<span><a href="/fireworks/my/make-detail">设计</a></span>
-				<span><a href="/fireworks/my/person">个人</a></span>
-			</div>
+			<c:choose>
+				<c:when test="${sessionScope.loginUser.id == sessionScope.spaceUser.id}">
+					<div class="zptop">
+						<span><a href="/fireworks/index.jsp">首页</a></span>
+						<span><a href="/fireworks/toUser?id=${sessionScope.loginUser.id}">项目</a></span>
+						<span><a href="/fireworks/my/make-detail">设计</a></span>
+						<span><a href="/fireworks/my/person">个人</a></span>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="zptop">
+						<span><a href="/fireworks/index.jsp">首页</a></span>
+						<span><a href="/fireworks/toUser?id=${sessionScope.spaceUser.id}">项目</a></span>
+					</div>
+				</c:otherwise>
+			</c:choose>
 			<div class="zpbottom">
 				<div class="zuopin">
 					<div class="zp">
@@ -106,6 +117,7 @@
 		
 		changeZp(1,8,'p.createTime');
 		function changeZp(pn,pageSize,byThis){
+			
 			$.ajax({
 				type:"get",
 	        	url:"/fireworks/production/findAllProduction",
@@ -115,7 +127,7 @@
 	        		 /* console.log(data);  */
 	        		 $(".zuopin").html('');
 	        		 for(var i=0;i<data.length;i++){
-	        			var html='<div class="zp"><a href="/fireworks/pn/detail" target="_blank"></a><img style="width: 245px;height: 164px;" src="'+data[i].imgurl+'" alt=""><h3>'+data[i].pro_name+'</h3><span><b style="color: #00fff6;">By</b> '+data[i].user.account+'</span><h5>'+changeTime(data[i].createTime)+'</h5><div class="zp-bottom"><img src="/fireworks/static/cenu_img/design-img/zan01.png" alt=""><span>'+data[i].like_num+'</span><img src="/fireworks/static/cenu_img/design-img/see.png" alt=""><span>'+data[i].view_num+'</span></div><div class="zp-change"><div class="zp-xiugai">修改</div><div class="zp-del">删除</div></div></div>';
+	        			var html='<div class="zp"><a href="/fireworks/pn/detail" target="_blank"></a><img style="width: 245px;height: 164px;" src="'+data[i].imgurl+'" alt=""><h3>'+data[i].pro_name+'</h3><span><b style="color: #00fff6;">By</b> '+data[i].user.account+'</span><h5>'+changeTime(data[i].createTime)+'</h5><div class="zp-bottom"><img src="/fireworks/static/cenu_img/design-img/zan01.png" alt=""><span>'+data[i].like_num+'</span><img src="/fireworks/static/cenu_img/design-img/see.png" alt=""><span>'+data[i].view_num+'</span></div><div class="zp-change"><div class="zp-xiugai"><a href="/fireworks/production/toUpdate?id='+data[i].id+'">修改</a></div><div class="zp-del" onclick="deletePro('+data[i].id+','+pn+')">删除</div></div></div>';
 	        			$(".zuopin").append(html);
 	        		 } 
 	        	}
@@ -146,14 +158,26 @@
 	    		        // $('.now').text(api.getCurrent());
 	    		        // console.log(index);
 	    		        console.log(index.getCurrent());
+	    		        changeZp(index.getCurrent(),8,'p.createTime');
 	    		    }
 	    		}, function (api) {
 	        		
 	    		});
 	        }
 		})
-		 
-
+		function deletePro(id,pn){
+			$.ajax({
+				type:"get",
+		        url:"/fireworks/production/deleteProduction?id="+id,
+		        dataType:"json",
+		        success:function(data){
+		        	if(data==1){
+		        		changeZp(pn,8,'p.createTime');
+		        	}
+		        }
+			})
+		}
+		
 	</script>
 </body>
 </html>

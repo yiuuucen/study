@@ -12,6 +12,7 @@ import org.jxnd.hc.service.IUserInfoService;
 import org.jxnd.hc.service.IUserService;
 import org.jxnd.hc.util.RandomUtil;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -42,6 +43,7 @@ public class UserController {
 					session.setAttribute("loginUser", user);
 					return "1";
 				}else{
+					session.removeAttribute("spaceUser");
 					session.setAttribute("adminInfo", user);
 					return "2";
 				}
@@ -149,7 +151,39 @@ public class UserController {
 		
 		
 	}
-	
-	
+
+	/**
+	 * 退出登录
+	 * @return
+	 */
+	@RequestMapping("/logout")
+	public String logout(HttpSession session){
+		session.removeAttribute("loginUser");
+		session.removeAttribute("spaceUser");
+		session.removeAttribute("adminInfo");
+		return "/fireworks/index.jsp";
+	}
+
+    /**
+     * 删除用户
+     * @param id 主键id
+     * @return
+     */
+    @RequestMapping("/deleteUser")
+	@ResponseBody
+	public String deleteUser(Integer id){
+	    int i=iUserService.updateUser(null,null,null,null,2,id);
+	    if(i>0)
+	        return "1";
+	    else
+	        return "2";
+    }
+    
+    @RequestMapping("/toMys/{id}")
+    public String toMys(@PathVariable("id")Integer id,HttpSession session){
+    	User user=iUserService.findUser(id, null, null);
+    	session.setAttribute("spaceUser", user);
+    	return "reception/myView/person"; 
+    }
 	
 }

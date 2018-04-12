@@ -21,7 +21,14 @@
 						<li></li>
 						<li><a href="">首页</a></li>
 						<li><a href="/fireworks/pn/design">作品集</a></li>
-						<li><a href="/fireworks/my/make-detail">我的设计</a></li>
+						<c:choose>
+							<c:when test="${sessionScope.loginUser != null }">
+								<li><a href="/fireworks/toUser?id=${sessionScope.loginUser.id}">我的设计</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="/fireworks/login">我的设计</a></li>
+							</c:otherwise>
+						</c:choose>
 						<li><a href="">关于我</a></li>
 					</ul>
 				</div>
@@ -31,7 +38,7 @@
 						<img src="${sessionScope.loginUser.headUrl}" alt="">
 						<span>${sessionScope.loginUser.account}</span>
 						<div class="head-cont">
-							<a href="/fireworks/my/person">个人中心</a>
+							<a href="/fireworks/toMys/${sessionScope.loginUser.id}">个人中心</a>
 							<a href="">退出</a>
 						</div>
 					</c:when>

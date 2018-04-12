@@ -50,7 +50,7 @@ public class ProductionController {
 		if(user != null){
 			list=iProductionService.findAllProduction(user.getId(), Integer.parseInt(deleteState), byThis, pn, Integer.parseInt(pageSize));
 		}else
-			list=iProductionService.findAllProduction(0, Integer.parseInt(deleteState), "p.id", pn, Integer.parseInt(pageSize));
+			list=iProductionService.findAllProduction(0, Integer.parseInt(deleteState), byThis, pn, Integer.parseInt(pageSize));
 		return list;
 	}
 	
@@ -118,7 +118,7 @@ public class ProductionController {
 	 * @param id 主键id
 	 * @return
 	 */
-	@RequestMapping("/updatePRoduction")
+	@RequestMapping("/updateProduction")
 	public String updatePRoduction(@RequestParam("filename")MultipartFile file,String pro_name,String pro_tail,Integer id){
 		//取得带路径文件名
 		String fileName=file.getOriginalFilename();
@@ -155,11 +155,18 @@ public class ProductionController {
 		else
 			return "2";
 	}
-	
+
+	/**
+	 * 去到修改页面
+	 * @param id 主键id
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping("/toUpdate")
 	public String toUpdate(Integer id,HttpServletRequest req){
 		Production production=iProductionService.findProduction(id);
 		req.setAttribute("thePro", production);
-		return "";
+		return "reception/myView/make-detail";
 	}
 	
 	/**

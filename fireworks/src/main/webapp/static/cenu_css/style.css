@@ -847,6 +847,14 @@ html,body{
 	width: 100px;
 	line-height: 30px;
 }
+.my-design .nofixright .zpbottom .zuopin .zp .zp-xiugai a{
+	width: 100px;
+    line-height: 30px;
+    display: block;
+    color: #000;
+    position: relative;
+    height: 30px;
+}
 .my-design .nofixright .zpbottom .zuopin .zp .zp-del{
 	cursor: pointer;
 	width: 100px;
