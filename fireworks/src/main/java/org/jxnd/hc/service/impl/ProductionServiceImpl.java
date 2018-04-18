@@ -23,8 +23,10 @@ public class ProductionServiceImpl implements IProductionService {
 		// TODO Auto-generated method stub
 		start=(start-1)*pageSize;
 		List<Production> list=productionMapper.findAllProduction(user_id, deleteState, byThis, start, pageSize);
-		for (Production production : list) {
-			production.setImgurl(RandomUtil.baseUrl+production.getImgurl());
+		if(list != null){
+			for (Production production : list) {
+				production.setImgurl(RandomUtil.baseUrl+production.getImgurl());
+			}
 		}
 		return list;
 	}
@@ -33,7 +35,8 @@ public class ProductionServiceImpl implements IProductionService {
 	public Production findProduction(Integer id) {
 		// TODO Auto-generated method stub
 		Production production=productionMapper.findProduction(id);
-		production.setImgurl(RandomUtil.baseUrl+production.getImgurl());
+		if(production != null)
+			production.setImgurl(RandomUtil.baseUrl+production.getImgurl());
 		return production;
 	}
 

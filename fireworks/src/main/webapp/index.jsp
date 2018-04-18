@@ -39,7 +39,7 @@
 						<span>${sessionScope.loginUser.account}</span>
 						<div class="head-cont">
 							<a href="/fireworks/toMys/${sessionScope.loginUser.id}">个人中心</a>
-							<a href="">退出</a>
+							<a href="/fireworks/logout">退出</a>
 						</div>
 					</c:when>
 					<c:otherwise>
@@ -105,7 +105,7 @@
 			timer1=setInterval(function(){
 			$(".head-right .head-cont").css("display","none");
 			},2000)
-		})
+		}) 
 		$(".head-right .head-cont").mouseout(function(){
 			clearInterval(timer1);
 			timer1=setInterval(function(){

@@ -53,6 +53,19 @@ public class ProductionController {
 			list=iProductionService.findAllProduction(0, Integer.parseInt(deleteState), byThis, pn, Integer.parseInt(pageSize));
 		return list;
 	}
+	/**
+	 * 查询作品集所有作品
+	 * @return 所有作品
+	 */
+	@RequestMapping("/findAllProduction2")
+	@ResponseBody
+	public List<Production> findAllProduction2(String deleteState,Integer pn,String pageSize,String byThis,HttpSession session){
+		User user=(User) session.getAttribute("spaceUser");
+		List<Production> list=null;
+		list=iProductionService.findAllProduction(0, Integer.parseInt(deleteState), byThis, pn, Integer.parseInt(pageSize));
+		
+		return list;
+	}
 	
 	/**
 	 * 添加作品
@@ -100,14 +113,13 @@ public class ProductionController {
 	 * @param req
 	 * @return
 	 */
+	@RequestMapping("/showProduction")
 	public String showProduction(Integer id,HttpServletRequest req){
 		Production production=iProductionService.findProduction(id);
 		UserInfo userInfo=iUserInfoService.findUserInfo(production.getUser().getUserInfo_id());
-		List<Object> list=new ArrayList();
-		list.add(production);
-		list.add(userInfo);
-		req.setAttribute("proInfo", list);
-		return "";
+		req.setAttribute("userInfo", userInfo);
+		req.setAttribute("proInfo", production);
+		return "reception/detail";
 	}
 	
 	/**
@@ -182,6 +194,19 @@ public class ProductionController {
 			return iProductionService.getProductionCount(spaceUser.getId());
 		}else
 			return iProductionService.getProductionCount(0);
+	}
+	
+	
+	/**
+	 * 取得作品集总作品数量
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/getProCount2")
+	@ResponseBody
+	public int getProCount2(HttpSession session){
+		User spaceUser=(User) session.getAttribute("spaceUser");
+		return iProductionService.getProductionCount(0);
 	}
 	
 }

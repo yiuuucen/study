@@ -72,7 +72,7 @@
 				</c:otherwise>
 			</c:choose>
 			<div class="personMsg">
-				<img src="/fireworks/static/cenu_img/my-design-img/tou.jpg" alt="">
+				<img src="${sessionScope.loginUser.headUrl }" alt="">
 				<div>
 					<span>姓名:</span>
 					<input type="text" my-data="name" value="${sessionScope.loginUser.account }">

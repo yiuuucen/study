@@ -161,7 +161,7 @@ public class UserController {
 		session.removeAttribute("loginUser");
 		session.removeAttribute("spaceUser");
 		session.removeAttribute("adminInfo");
-		return "/fireworks/index.jsp";
+		return "login";
 	}
 
     /**

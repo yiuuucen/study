@@ -192,14 +192,14 @@ html,body{
 .index .head-right .head-cont{
 	position: absolute;
 	z-index: 9999;
-	width: 150px;
+	width: 100px;
 	top: 70px;
 	display: none;
 }
 .index .head-right .head-cont a{
 	display: block;
 	float: left;
-	width: 150px;
+	width: 100px;
 	height: 40px;
 	line-height: 40px;
 	text-align: center;
@@ -536,14 +536,14 @@ html,body{
 .design .head-right .head-cont{
 	position: absolute;
 	z-index: 9999;
-	width: 150px;
+	width: 100px;
 	top: 70px;
 	display: none;
 }
 .design .head-right .head-cont a{
 	display: block;
 	float: left;
-	width: 150px;
+	width: 100px;
 	height: 40px;
 	line-height: 40px;
 	text-align: center;
@@ -677,9 +677,9 @@ html,body{
     box-sizing: border-box;
 }
 .my-design .fixleft>div:nth-child(1) img{
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
+	width: 90px;
+	height: 90px;
+	border-radius: 45px;
 	float: left;
 }
 .my-design .fixleft>div:nth-child(1) h3{
@@ -763,7 +763,7 @@ html,body{
 }
 .my-design .nofixright{
 	width: 75%;
-	left: 25%;
+	left: 30%;
 	position: relative;
 }
 .my-design .nofixright .zptop{
@@ -776,6 +776,7 @@ html,body{
 	display: flex;
 	margin: 0 auto;
 }
+
 .my-design .nofixright .zptop span a{
 	display: block;
 	width: 60px;
@@ -798,7 +799,7 @@ html,body{
 	background: rgba(238,238,238,0.6);
 	border:2px solid ;
 	box-sizing: border-box;
-	margin: 30px 30px 0;
+	margin: 30px 5px 0;
 	padding: 1%;
 	position: relative;
 }
@@ -1002,6 +1003,7 @@ html,body{
 }
 .detail .nofixright .zpdetail>div img{
 	width: 280px;
+	height:280px;
 }
 .detail .nofixright .zpdetail>div p{
 	width: 400px;
@@ -1043,9 +1045,9 @@ html,body{
     box-sizing: border-box;
 }
 .make-detail .fixleft>div:nth-child(1) img{
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
+	width: 90px;
+	height: 90px;
+	border-radius: 45px;
 	float: left;
 }
 .make-detail .fixleft>div:nth-child(1) h3{
@@ -1235,9 +1237,9 @@ html,body{
     box-sizing: border-box;
 }
 .person .fixleft>div:nth-child(1) img{
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
+	width: 90px;
+	height: 90px;
+	border-radius: 45px;
 	float: left;
 }
 .person .fixleft>div:nth-child(1) h3{

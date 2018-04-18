@@ -19,12 +19,12 @@
 		<div class="fixleft">
 			<div>
 				<!-- h5表示姓名 -->
-				<h5>胡成</h5>
+				<h5>${requestScope.proInfo.user.account}</h5>
 				<img src="/fireworks/static/cenu_img/my-design-img/tou.jpg" alt="">
 				<!-- h3表示职业 -->
-				<h3>学生</h3>
+				<h3>${requestScope.userInfo.profession}</h3>
 				<!-- h4表示目前居住地 -->
-				<h4>北京 昌平</h4>
+				<h4>${requestScope.userInfo.address}</h4>
 			</div>
 			<div>
 				<div>
@@ -42,16 +42,16 @@
 			</div>
 			<div>
 				<h3>擅长爱好</h3>
-				<h4>运动，看书，听音乐</h4>
+				<h4>${requestScope.userInfo.hobby}</h4>
 			</div>
 			<div>
 				<h3>联系方式</h3>
-				<h4>QQ:<span>1784373887</span></h4>
-				<h5>TEL:<span>15510507940</span></h5>
+				<h4>QQ:<span>${requestScope.userInfo.qq}</span></h4>
+				<h5>TEL:<span>${requestScope.proInfo.user.phone}</span></h5>
 			</div>
 			<div>
 				<h3>介绍自己</h3>
-				<p>这个人很LAN什么都没留下~~</p>
+				<p>${requestScope.userInfo.idiograph}</p>
 			</div>
 		</div>
 		<div class="nofixright">
@@ -59,19 +59,19 @@
 			<div class="zpdetail">
 				<div>
 					<span>作品名:</span>
-					<h3>heart-心-heart</h3>
+					<h3>${requestScope.proInfo.pro_name}</h3>
 				</div>
 				<div>
 					<span>作品：</span>
-					<img src="/fireworks/static/cenu_img/design-img/zp01.png" alt="">
+					<img src="${requestScope.proInfo.imgurl}" alt="">
 				</div>
 				<div>
 					<span>作品介绍:</span>
-					<p>设计出心型的烟花，当它在天上绽放的时候，会有很好的视觉效果，可用于情侣之间。设计出心型的烟花，当它在天上绽放的时候，会有很好的视觉效果，可用于情侣之间。</p>
+					<p>${requestScope.proInfo.pro_tail}</p>
 				</div>
 				<div>
 					<span>作品时间:</span>
-					<em>2018-03-25</em>
+					<em>${requestScope.proInfo.createTime}</em>
 				</div>
 				<!-- <div>
 					<span></span>

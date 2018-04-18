@@ -41,7 +41,7 @@
 						<span>${sessionScope.loginUser.account}</span>
 						<div class="head-cont">
 							<a href="/fireworks/toMys/${sessionScope.loginUser.id}">个人中心</a>
-							<a href="">退出</a>
+							<a href="/fireworks/logout">退出</a>
 						</div>
 					</c:when>
 					<c:otherwise>
@@ -93,7 +93,7 @@
 
 		$(".design .content .zuopin .zp").css("border-color",getRandomColor);
 
-
+		var timer1;
 		$(".head-right img").mouseover(function(){
 			$(".head-right .head-cont").css("display","block");
 		})
@@ -115,13 +115,94 @@
 		
 		//排序功能
 		$(".shaixuan span").click(function(){
-			console.log($(this).attr("data-val"));
+			create(1,8,"p.createTime");
 			if($(this).attr("data-val")==1){
 				// $(this).css("background","#ffeb3b");
+				$.ajax({
+				type:"get",
+			    url:"/fireworks/production/getProCount2",  
+			    dataType:"json",
+			    success:function(data){	
+			    	// 分页的配置
+					$('.M-box').pagination({
+						pageCount:(data/8),
+			            totalData:data,
+			            showData:8,
+			            mode:'fixed',
+			            coping:true,
+			            homePage:"首页",
+			            endPage:"尾页",
+			            keepShowPN:true,
+			            prevContent:'<',
+			            nextContent:'>',
+			            jump:true,
+					    callback: function (index) {		       
+					       // console.log(index.getCurrent());
+					        create(index.getCurrent(),8,"p.createTime");
+					    }
+					}, function (api) {
+			    		
+					}); 
+			    }
+			})
 			}else if($(this).attr("data-val")==2){
-				// $(this).css("background","#ffeb3b")
+				create(1,8,"p.like_num");
+				$.ajax({
+					type:"get",
+				    url:"/fireworks/production/getProCount2",  
+				    dataType:"json",
+				    success:function(data){	
+				    	// 分页的配置
+						$('.M-box').pagination({
+							pageCount:(data/8),
+				            totalData:data,
+				            showData:8,
+				            mode:'fixed',
+				            coping:true,
+				            homePage:"首页",
+				            endPage:"尾页",
+				            keepShowPN:true,
+				            prevContent:'<',
+				            nextContent:'>',
+				            jump:true,
+						    callback: function (index) {		       
+						       // console.log(index.getCurrent());
+						        create(index.getCurrent(),8,"p.like_num");
+						    }
+						}, function (api) {
+				    		
+						}); 
+				    }
+				})	
 			}else if($(this).attr("data-val")==3){
-				// $(this).css("background","#ffeb3b")
+				create(1,8,"p.view_num");
+				$.ajax({
+					type:"get",
+				    url:"/fireworks/production/getProCount2",  
+				    dataType:"json",
+				    success:function(data){	
+				    	// 分页的配置
+						$('.M-box').pagination({
+							pageCount:(data/8),
+				            totalData:data,
+				            showData:8,
+				            mode:'fixed',
+				            coping:true,
+				            homePage:"首页",
+				            endPage:"尾页",
+				            keepShowPN:true,
+				            prevContent:'<',
+				            nextContent:'>',
+				            jump:true,
+						    callback: function (index) {		       
+						       // console.log(index.getCurrent());
+						       create(index.getCurrent(),8,"p.view_num");
+						    }
+						}, function (api) {
+				    		
+						}); 
+				    }
+				})	  
 			}
 		})
 
@@ -130,27 +211,55 @@
 			window.location.href = "/fireworks/my/my-design.html";
 			// alert(1);
 		})
-		// 分页的配置
-		$('.M-box').pagination({
-			pageCount:56,
-            totalData:765,
-            showData:8,
-            mode:'fixed',
-            coping:true,
-            homePage:"首页",
-            endPage:"尾页",
-            keepShowPN:true,
-            prevContent:'<',
-            nextContent:'>',
-            jump:true,
-		    callback: function (index) {
-		        // $('.now').text(api.getCurrent());
-		        // console.log(index);
-		        console.log(index.getCurrent());
-		    }
-		}, function (api) {
-    		
-		}); 
+		//作品生成初始化
+		create(1,8,'p.createTime');
+		function create(pn,pageSize,byThis){
+			$.ajax({
+				type:"get",
+		        url:"/fireworks/production/findAllProduction2",
+		        data:{"deleteState":1,"pn":pn,"pageSize":pageSize,"byThis":byThis},
+		        dataType:"json",
+		        success:function(data){
+		        	$(".zuopin").html('');
+	        		 for(var i=0;i<data.length;i++){
+	        			var html='<div class="zp"><a href="/fireworks/production/showProduction?id='+data[i].id+'" target="_blank"></a><img style="width: 245px;height: 164px;" src="'+data[i].imgurl+'" alt=""><h3>'+data[i].pro_name+'</h3><span><b style="color: #00fff6;">By</b><a style="position: relative;height: 30px;margin: 0 0 0 20px;color: #000;" href="/fireworks/toUser?id='+data[i].user_id+'"> '+data[i].user.account+'</a></span><h5>'+changeTime(data[i].createTime)+'</h5><div class="zp-bottom"><img src="/fireworks/static/cenu_img/design-img/zan01.png" alt=""><span>'+data[i].like_num+'</span><img src="/fireworks/static/cenu_img/design-img/see.png" alt=""><span>'+data[i].view_num+'</span></div><div class="zp-change"></div></div>';
+	        			$(".zuopin").append(html);
+	        		 } 
+		        }
+			})
+		}
+		$.ajax({
+			type:"get",
+	        url:"/fireworks/production/getProCount",  
+	        dataType:"json",
+	        success:function(data){
+	        	// 分页的配置
+				$('.M-box').pagination({
+					pageCount:(data/8),
+		            totalData:data,
+		            showData:8,
+		            mode:'fixed',
+		            coping:true,
+		            homePage:"首页",
+		            endPage:"尾页",
+		            keepShowPN:true,
+		            prevContent:'<',
+		            nextContent:'>',
+		            jump:true,
+				    callback: function (index) {		       
+				       // console.log(index.getCurrent());
+				       //作品生成初始化
+				
+				       create(index.getCurrent(),8,'p.createTime');
+				    }
+				}, function (api) {
+		    		
+				});
+	        }
+		})
+		
+		
+		
 		
 		//将时间戳换成日期
 		function changeTime(time){
@@ -165,24 +274,7 @@
 			//console.log(Y+M+D+h+m+s);
 		}
 		
-		//作品生成
-		create(1,8,'p.createTime');
-		function create(pn,pageSize,byThis){
-			$.ajax({
-				type:"get",
-		        url:"/fireworks/production/findAllProduction",
-		        data:{"deleteState":1,"pn":pn,"pageSize":pageSize,"byThis":byThis},
-		        dataType:"json",
-		        success:function(data){
-		        	$(".zuopin").html('');
-	        		 for(var i=0;i<data.length;i++){
-	        			var html='<div class="zp"><a href="/fireworks/pn/detail" target="_blank"></a><img style="width: 245px;height: 164px;" src="'+data[i].imgurl+'" alt=""><h3>'+data[i].pro_name+'</h3><span><b style="color: #00fff6;">By</b><a style="position: relative;height: 30px;margin: 0 0 0 20px;color: #000;" href="/fireworks/toUser?id='+data[i].user_id+'"> '+data[i].user.account+'</a></span><h5>'+changeTime(data[i].createTime)+'</h5><div class="zp-bottom"><img src="/fireworks/static/cenu_img/design-img/zan01.png" alt=""><span>'+data[i].like_num+'</span><img src="/fireworks/static/cenu_img/design-img/see.png" alt=""><span>'+data[i].view_num+'</span></div><div class="zp-change"></div></div>';
-	        			$(".zuopin").append(html);
-	        		 } 
-		        }
-			})
-		}
-		console.log(1)
+		
 	</script>
 </body>
 </html>
