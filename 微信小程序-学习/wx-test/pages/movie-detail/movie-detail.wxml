@@ -1,0 +1,20 @@
+<view class="container">
+  <video src='{{movie.video}}' poster='{{movie.poster}}' controls></video>
+  <view class='movie-content'>
+      <view class='title'>
+        <text>{{movie.title}}</text>
+      </view>
+      <view class='type'>
+        <text>{{movie.rate}}分 / <text wx:for="{{movie.types}}" wx:key="{{index}}"> {{item}} </text> </text>
+      </view>
+      <view class='pubdate'>
+        上映时间:{{movie.pubdate}}  {{movie.country}}
+      </view>
+      <view class='summary'>
+        {{movie.summary}}
+      </view>
+      <view class='tags'>
+        <text wx:for="{{movie.tags}}" wx:key="{{index}}"> {{item}} </text>
+      </view>
+  </view>
+</view>
